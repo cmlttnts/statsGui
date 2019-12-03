@@ -1,0 +1,12 @@
+# ignore everything
+/*
+#  but source files and data files
+!*.cpp
+!*.hpp
+!*.h
+!*.ui
+!*.c
+!weeks/
+!teams/
+!.gitignore
+!README.md

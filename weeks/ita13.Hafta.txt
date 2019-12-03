@@ -1,0 +1,14 @@
+Date 23.11.2019
+atalanta juventus 0 0 1 3 c 2 3 6 0
+milan napoli 1 1 1 1 c 2 2 1 2
+torino inter 0 2 0 3 c 9 3 3 1
+bologna parma 1 1 2 2 c 8 1 7 1
+. bu nasi bi kornerdir birader
+hellas fiorentina 0 0 1 0 c 5 3 3 3
+roma brescia 0 0 3 0 c 9 4 8 2
+. italyada korner show
+sassuolo lazio 1 1 1 2 c 3 2 2 6
+sampdoria udinese 1 1 2 1 c 3 2 5 0
+lecce cagliari 0 1 2 2 c 4 2 7 0
+. bu macta son 10 dk 3 kirmizi 1 penalti oldu 0 2 den 2 2 ye geldi mac
+spal genoa 0 0 1 1 c 5 4 0 0

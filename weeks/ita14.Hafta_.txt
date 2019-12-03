@@ -1,0 +1,15 @@
+Date 30.11.2019
+brescia atalanta 0 1 0 3 c 0 9 2 2
+. bres asiri kapaniyo mu nasil kornerler bunlar
+genoa torino 0 0 0 1 c 5 2 1 2
+fiorentina lecce 0 0 0 1 c 4 1 5 1
+juventus sassuolo 1 1 2 2 c 2 2 7 0
+inter spal 2 0 2 1 c 4 0 4 0
+lazio udinese 3 0 3 0 c 1 1 1 1
+parma milan 0 0 0 1 c 0 4 1 3
+. milandan bi surpriz bekliyorduk ama kovalamadık burda
+napoli bologna 1 0 1 2 c 6 0 1 0
+. napoliye bi muddet guvenme
+hellas roma 1 2 1 3 c 4 2 2 3
+cagliari sampdoria 0 1 4 3 c 3 3 3 1
+. mac bi ara 1 3tu ne donmus
