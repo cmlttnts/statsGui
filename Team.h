@@ -27,8 +27,10 @@ public:
 	unsigned int num_of_away_draws = 0;
 
 	unsigned int num_of_first_half_wins = 0;
+	unsigned int num_of_first_half_draws = 0;
 	unsigned int num_of_first_half_losses = 0;
 	unsigned int num_of_second_half_wins = 0;
+	unsigned int num_of_second_half_draws = 0;
 	unsigned int num_of_second_half_losses = 0;
 	
 	//goals

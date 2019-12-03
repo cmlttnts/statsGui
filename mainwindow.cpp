@@ -92,10 +92,11 @@ void MainWindow::on_leagueComboBox_activated(int index)
 {
     //yine string olanlı yerine bunu seç
 }
-
+#define ALIGN_COMP 50
+#define EMPTY_SPACE_QSTRING(X) QString("%1").arg(" ", X, ' ')
+#define EMPTY_SPACE_COUNT 25
 void MainWindow::on_compareButton_clicked()
 {
-
 	ui->mainTextArea->clear();
     //Comparison button
 	LEAGUE_SEARCH_OPTION the_opt = LEAGUE_SEARCH_OPTION::BOTH;
@@ -119,8 +120,122 @@ void MainWindow::on_compareButton_clicked()
 	if (team1_info.second || team2_info.second)
 		ui->mainTextArea->append("Takımlardan en az biri yanlış!");
 	else {
-		//TODO : Format how to compare two teams stats
-		ui->mainTextArea->append("BULUNDU");
+		//TEAM NAMES FIRST
+		QString frmt_str1 = QString("%1").arg(QString::fromStdString(team1_info.first.name), ALIGN_COMP, ' ');
+		frmt_str1 += QString("%1").arg("|", ALIGN_COMP, ' ');
+		frmt_str1 += QString("%1").arg(QString::fromStdString(team2_info.first.name), ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		QString frmt_str2;
+
+		// MATCH WINS LOSSES
+		frmt_str1 = QString("%1").arg("MAÇ SONUÇLARI", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str1 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team1_info.first.num_of_wins), QString::number(team1_info.first.num_of_draws), QString::number(team1_info.first.num_of_losses));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2*ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str2 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team2_info.first.num_of_wins), QString::number(team2_info.first.num_of_draws), QString::number(team2_info.first.num_of_losses));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2*ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		// HOME AWAY PERFORMANCE
+		frmt_str1 = QString("%1").arg("EV vs DEP PERFORMANSI", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT -5 );
+		frmt_str1 += QString("Evde (G /B /M )= (%1 / %2 / %3)").arg(QString::number(team1_info.first.num_of_home_wins), QString::number(team1_info.first.num_of_home_draws), QString::number(team1_info.first.num_of_home_losses));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT-6);
+		frmt_str2 += QString("Depte (G /B /M )= (%1 / %2 / %3)").arg(QString::number(team2_info.first.num_of_away_wins), QString::number(team2_info.first.num_of_away_draws), QString::number(team2_info.first.num_of_away_losses));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		// FIRST HALF PERFORMANCE
+		frmt_str1 = QString("%1").arg("İLK YARI SONUÇLARI", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str1 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team1_info.first.num_of_first_half_wins), QString::number(team1_info.first.num_of_first_half_draws), QString::number(team1_info.first.num_of_first_half_losses));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str2 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team2_info.first.num_of_first_half_wins), QString::number(team2_info.first.num_of_first_half_draws), QString::number(team2_info.first.num_of_first_half_losses));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		// SECOND HALF PERFORMANCE
+		frmt_str1 = QString("%1").arg("İKİNCİ YARI SONUÇLARI", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str1 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team1_info.first.num_of_second_half_wins), QString::number(team1_info.first.num_of_second_half_draws), QString::number(team1_info.first.num_of_second_half_losses));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str2 += QString("(G /B /M )= (%1 / %2 / %3)").arg(QString::number(team2_info.first.num_of_second_half_wins), QString::number(team2_info.first.num_of_second_half_draws), QString::number(team2_info.first.num_of_second_half_losses));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+		
+		// GOALS SCORED AND RECEIVED
+		frmt_str1 = QString("%1").arg("ATILAN YENİLEN GOLLER", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		double team1_avr = team1_info.first.num_of_goals / double(team1_info.first.num_of_matches);
+		double team2_avr = team2_info.first.num_of_goals / double(team2_info.first.num_of_matches);
+
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT-15);
+		frmt_str1 += QString("Attığı Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team1_avr), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT-15);
+		frmt_str2 += QString("Attığı Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team2_avr), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		team1_avr = team1_info.first.num_of_goals_rec / double(team1_info.first.num_of_matches);
+		team2_avr = team2_info.first.num_of_goals_rec / double(team2_info.first.num_of_matches);
+
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT-15);
+		frmt_str1 += QString("Yediği Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team1_avr), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT-16);
+		frmt_str2 += QString("Yediği Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team2_avr), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		team1_avr = team1_info.first.num_of_home_goals / double(team1_info.first.num_of_home_matches);
+		team2_avr = team2_info.first.num_of_away_goals / double(team2_info.first.num_of_away_matches);
+
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT - 15);
+		frmt_str1 += QString("Evde Attığı Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team1_avr), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT - 18);
+		frmt_str2 += QString("Depte Attığı Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team2_avr), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		team1_avr = team1_info.first.num_of_home_goals_rec / double(team1_info.first.num_of_home_matches);
+		team2_avr = team2_info.first.num_of_away_goals_rec / double(team2_info.first.num_of_away_matches);
+
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT - 15);
+		frmt_str1 += QString("Evde Yediği Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team1_avr), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT - 20);
+		frmt_str2 += QString("Depte Yediği Ort. / Maç Sayısı : %1 / %2").arg(QString::number(team2_avr), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		// OVER UNDER STATS
+		frmt_str1 = QString("%1").arg("ALT ÜST İSTATİSTİKLERİ", 2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1);
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str1 += QString("2.5 ÜST / Maç Sayısı: %1 / %2").arg(QString::number(team1_info.first.num_of_above_2_5_matches), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str2 += QString("2.5 ÜST / Maç Sayısı: %1 / %2").arg(QString::number(team2_info.first.num_of_above_2_5_matches), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
+
+		frmt_str1 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str1 += QString("3.5 ÜST / Maç Sayısı: %1 / %2").arg(QString::number(team1_info.first.num_of_matches - team1_info.first.num_of_below_3_5_matches), QString::number(team1_info.first.num_of_matches));
+		frmt_str1 = QString("%1").arg(frmt_str1, -2 * ALIGN_COMP, ' ');
+		frmt_str2 = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+		frmt_str2 += QString("3.5 ÜST / Maç Sayısı: %1 / %2").arg(QString::number(team2_info.first.num_of_matches - team2_info.first.num_of_above_2_5_matches), QString::number(team2_info.first.num_of_matches));
+		frmt_str2 = QString("%1").arg(frmt_str2, -2 * ALIGN_COMP, ' ');
+		ui->mainTextArea->append(frmt_str1 + frmt_str2);
 	}
 
 }

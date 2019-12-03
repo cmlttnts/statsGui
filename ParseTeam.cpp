@@ -116,8 +116,10 @@ void evaluateFirstHalf(Team& team, Match& match,
 		match.first_half_result = MatchResult::HOME_WIN;
 	else if (away_fh_score > home_fh_score)
 		match.first_half_result = MatchResult::AWAY_WIN;
-	else
+	else {
 		match.first_half_result = MatchResult::DRAW;
+		team.num_of_first_half_draws++;
+	}
 
 	//first half infoes
 	if (home_fh_score + away_fh_score > 1)
@@ -141,7 +143,6 @@ void evaluateFirstHalf(Team& team, Match& match,
 		else if (away_fh_score < home_fh_score)
 			team.num_of_first_half_losses++;
 	}
-
 }
 void evaluateSecondHalf(Team& team, Match& match,
 						unsigned int home_total_score,
@@ -172,8 +173,10 @@ void evaluateSecondHalf(Team& team, Match& match,
 		match.second_half_result = MatchResult::HOME_WIN;
 	else if (away_sh_goals > home_sh_goals)
 		match.second_half_result = MatchResult::AWAY_WIN;
-	else
+	else {
 		match.second_half_result = MatchResult::DRAW;
+		team.num_of_second_half_draws++;
+	}
 	//kg var
 	if (home_total_score > 0 && away_total_score > 0)
 		team.num_of_kg_var_matches++;
