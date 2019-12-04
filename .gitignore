@@ -8,5 +8,7 @@
 !*.c
 !weeks/
 !teams/
+!src/
+!include/
 !.gitignore
 !README.md
