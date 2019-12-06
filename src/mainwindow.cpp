@@ -24,11 +24,16 @@ void MainWindow::setFilePaths(const std::vector<std::filesystem::path>& files1, 
 }
 
 
-void MainWindow::on_bestTeamComboBox_activated(const QString &arg1)
-{
-    ui->mainTextArea->clear();
-    //ui->mainTextArea->append("Hello");
-}
+//void MainWindow::on_bestTeamComboBox_activated(const QString &arg1)
+//{
+//    ui->mainTextArea->clear();
+//    //ui->mainTextArea->append("Hello");
+//}
+
+#define ALIGN_MATCH_HISTORY 30
+#define ALIGN_COMP 50
+#define EMPTY_SPACE_QSTRING(X) QString("%1").arg(" ", X, ' ')
+#define EMPTY_SPACE_COUNT 25
 
 void MainWindow::on_teamAnalysisButton_clicked()
 {
@@ -42,6 +47,10 @@ void MainWindow::on_teamAnalysisButton_clicked()
 		else {
 			std::sort(team_info.first.matches.begin(), team_info.first.matches.end(), sortMatchesByDate);
 			unsigned int i = 1;
+			QString pretty_str;
+			QFont analysis_font("monospace");
+			analysis_font.setPointSize(12);
+			ui->mainTextArea->setCurrentFont(analysis_font);
 			for (const auto& item : team_info.first.matches) {
 				if(item.picked_team_result == TeamsResult::TEAM_WIN)
 					ui->mainTextArea->setTextColor(Qt::GlobalColor::darkGreen);
@@ -49,10 +58,39 @@ void MainWindow::on_teamAnalysisButton_clicked()
 					ui->mainTextArea->setTextColor(Qt::GlobalColor::red);
 				else
 					ui->mainTextArea->setTextColor(Qt::GlobalColor::black);
-				ui->mainTextArea->append(QString::fromStdString(std::to_string(i)+ "-)" +item.pretty_str));
+				pretty_str = QString("%1").arg(QString::fromStdString(std::to_string(i) + "-)" + item.team_names), -ALIGN_MATCH_HISTORY, ' ');
+				pretty_str += QString(" %1").arg(QString::fromStdString(item.match_score), ALIGN_MATCH_HISTORY, ' ');
+				pretty_str += QString(" %1").arg(QString::fromStdString(item.corners), ALIGN_MATCH_HISTORY, ' ');
+				pretty_str += QString::fromStdString(item.comment);
+				ui->mainTextArea->append(pretty_str);
 				i++;
 			}
 
+			ui->mainTextArea->setTextColor(Qt::GlobalColor::black);
+
+			pretty_str = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+			pretty_str += QString("MAÇ SONUÇLARI İSTATİSTİKLERİ");
+			ui->mainTextArea->append(pretty_str);
+			pretty_str = QString("G / B / M = (%1 / %2 / %3)").arg(team_info.first.num_of_wins).arg(team_info.first.num_of_draws).arg(team_info.first.num_of_losses);
+			ui->mainTextArea->append(pretty_str);
+
+			pretty_str = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+			pretty_str += QString("İLK YARI SONUÇLARI İSTATİSTİKLERİ");
+			ui->mainTextArea->append(pretty_str);
+			pretty_str = QString("G / B / M = (%1 / %2 / %3)").arg(team_info.first.num_of_first_half_wins).arg(team_info.first.num_of_first_half_draws).arg(team_info.first.num_of_first_half_losses);
+			ui->mainTextArea->append(pretty_str);
+
+			pretty_str = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+			pretty_str += QString("İKİNCİ YARI SONUÇLARI İSTATİSTİKLERİ");
+			ui->mainTextArea->append(pretty_str);
+			pretty_str = QString("G / B / M = (%1 / %2 / %3)").arg(team_info.first.num_of_second_half_wins).arg(team_info.first.num_of_second_half_draws).arg(team_info.first.num_of_second_half_losses);
+			ui->mainTextArea->append(pretty_str);
+
+			pretty_str = EMPTY_SPACE_QSTRING(EMPTY_SPACE_COUNT);
+			pretty_str += QString("MAÇ SONU GOL İSTATİSTİKLERİ");
+			ui->mainTextArea->append(pretty_str);
+			pretty_str = QString("Maç başına ortalama ATTI / YEDİ = (%1 / %2 )").arg(team_info.first.num_of_goals / double(team_info.first.num_of_matches)).arg(team_info.first.num_of_goals_rec / double(team_info.first.num_of_matches));
+			ui->mainTextArea->append(pretty_str);
 		}
 	}
 	else
@@ -64,38 +102,39 @@ void MainWindow::on_teamAnalysisTabWidget_currentChanged(int index)
 {
     //Clear text area
     ui->mainTextArea->clear();
+	index++;
 }
 
 void MainWindow::on_rootTabWidget_currentChanged(int index)
 {
     ui->mainTextArea->clear();
 	//ui->mainTextArea->append(sometext);
+	index++;
+
 }
 
-void MainWindow::on_leagueComboBox_activated(const QString &arg1)
-{
-    ui->mainTextArea->clear();
-    //This is where we show league analysis
-}
+//void MainWindow::on_leagueComboBox_activated(const QString &arg1)
+//{
+//    ui->mainTextArea->clear();
+//    //This is where we show league analysis
+//}
 
-void MainWindow::on_compTwoComboBox_activated(int index)
-{
-    //Karşılaştırma için lig opsiyonu
-	//std::tuple<std::string, std::string, COMPARE_TWO_OPTIONS, LEAGUE_SEARCH_OPTION> two_teams = 
-}
+//void MainWindow::on_compTwoComboBox_activated(int index)
+//{
+//    //Karşılaştırma için lig opsiyonu
+//	//std::tuple<std::string, std::string, COMPARE_TWO_OPTIONS, LEAGUE_SEARCH_OPTION> two_teams = 
+//}
 
-void MainWindow::on_bestTeamComboBox_activated(int index)
-{
-    //STring olanlı yerine bunu kullan daha rahat
-}
+//void MainWindow::on_bestTeamComboBox_activated(int index)
+//{
+//    //STring olanlı yerine bunu kullan daha rahat
+//}
+//
+//void MainWindow::on_leagueComboBox_activated(int index)
+//{
+//    //yine string olanlı yerine bunu seç
+//}
 
-void MainWindow::on_leagueComboBox_activated(int index)
-{
-    //yine string olanlı yerine bunu seç
-}
-#define ALIGN_COMP 50
-#define EMPTY_SPACE_QSTRING(X) QString("%1").arg(" ", X, ' ')
-#define EMPTY_SPACE_COUNT 25
 void MainWindow::on_compareButton_clicked()
 {
 	ui->mainTextArea->clear();

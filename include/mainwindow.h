@@ -19,7 +19,7 @@ public:
 	void setSomeText(const std::string&);
 	void setFilePaths(const std::vector<std::filesystem::path>&, const std::vector<std::filesystem::path>&);
 private slots:
-    void on_bestTeamComboBox_activated(const QString &arg1);
+    //void on_bestTeamComboBox_activated(const QString &arg1);
 
     void on_teamAnalysisButton_clicked();
 
@@ -27,13 +27,13 @@ private slots:
 
     void on_rootTabWidget_currentChanged(int index);
 
-    void on_leagueComboBox_activated(const QString &arg1);
+    //void on_leagueComboBox_activated(const QString &arg1);
 
-    void on_compTwoComboBox_activated(int index);
+    //void on_compTwoComboBox_activated(int index);
 
-    void on_bestTeamComboBox_activated(int index);
+    //void on_bestTeamComboBox_activated(int index);
 
-    void on_leagueComboBox_activated(int index);
+    //void on_leagueComboBox_activated(int index);
 
     void on_compareButton_clicked();
 

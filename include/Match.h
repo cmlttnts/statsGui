@@ -16,6 +16,9 @@ class Match {
 private:
 public:
 	std::string pretty_str;
+	std::string team_names;
+	std::string match_score;
+	std::string corners;
 	std::string home_name;
 	std::string away_name;
 	std::string comment;
