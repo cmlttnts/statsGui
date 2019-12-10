@@ -34,7 +34,10 @@ enum class BEST_TEAM_OPTIONS {
 	MOST_GOALS_IN_MATCHES,
 	LEAST_GOALS_IN_MATCHES,
 	COMEBACKS,
-	CORNERS,
+	GOBACKS,
+	TOTAL_CORNERS,
+	CORNERS_TAKEN,
+	CORNERS_RECEIVED,
 	GO_BACK,
 	EXIT
 };
@@ -69,7 +72,6 @@ std::string getTeamNameFromUser();
 BEST_TEAM_OPTIONS getBestTeamOption();
 
 LEAGUE_OPTIONS getLeagueOption();
-void printTeamsPerLeague(const std::vector<std::filesystem::path>&);
-std::vector<std::string> _getTeamsFromFile(const std::string&);
+//void printTeamsPerLeague(const std::vector<std::filesystem::path>&);
 
 std::tuple<std::string, std::string, COMPARE_TWO_OPTIONS, LEAGUE_SEARCH_OPTION> getTwoTeamNamesForCompare();

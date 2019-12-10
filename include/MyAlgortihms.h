@@ -3,24 +3,30 @@
 #include "Team.h"
 #include <vector>
 #include "Interface.h"
-bool sortMatchesByDate(const Match&, const Match&);
-bool sortByWins(const Team& team1, const Team& team2);
-bool sortByLosses(const Team& team1, const Team& team2);
-bool sortByFHWins(const Team& team1, const Team& team2);
-bool sortByFHLosses(const Team& team1, const Team& team2);
-bool sortBySHWins(const Team& team1, const Team& team2);
-bool sortBySHLosses(const Team& team1, const Team& team2);
-bool sortByTotalCorners(const Team&, const Team& team2);
 
-bool sortByMostGoalsScored(const Team& team1, const Team& team2);
-bool sortByMostGoalsRec(const Team& team1, const Team& team2);
-bool sortByMostGoalsFH(const Team& team1, const Team& team2);
-bool sortByMostGoalsSH(const Team& team1, const Team& team2);
+void sortForBestOption(std::vector<Team>&, BEST_TEAM_OPTIONS);
 
-bool sortByMostGoalsInMatch(const Team& team1, const Team& team2);
+bool compareByDate(const Match&, const Match&);
+bool compareByWins(const Team& team1, const Team& team2);
+bool compareByLosses(const Team& team1, const Team& team2);
+bool compareByFHWins(const Team& team1, const Team& team2);
+bool compareByFHLosses(const Team& team1, const Team& team2);
+bool compareBySHWins(const Team& team1, const Team& team2);
+bool compareBySHLosses(const Team& team1, const Team& team2);
+bool compareByTotalCorners(const Team& team1, const Team& team2);
+bool compareByCornersTaken(const Team& team1, const Team& team2);
+bool compareByCornersRec(const Team& team1, const Team& team2);
 
 
-bool sortByComebacksAndGobacks(const Team& team1, const Team& team2);
-bool sortByComebacks(const Team& team1, const Team& team2);
-bool sortByGobacks(const Team& team1, const Team& team2);
+bool compareByMostGoalsScored(const Team& team1, const Team& team2);
+bool compareByMostGoalsRec(const Team& team1, const Team& team2);
+bool compareByMostGoalsFH(const Team& team1, const Team& team2);
+bool compareByMostGoalsSH(const Team& team1, const Team& team2);
+
+bool compareByMostGoalsInMatch(const Team& team1, const Team& team2);
+
+
+bool compareByComebacksAndGobacks(const Team& team1, const Team& team2);
+bool compareByComebacks(const Team& team1, const Team& team2);
+bool compareByGobacks(const Team& team1, const Team& team2);
 void rankTeamsByOption(std::vector<Team>&, BEST_TEAM_OPTIONS);

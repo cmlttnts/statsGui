@@ -194,6 +194,10 @@ void evaluateSecondHalf(Team& team, Match& match,
 		team.num_of_home_matches++;
 		team.num_of_second_half_goals += home_sh_goals;
 		team.num_of_second_half_goals_rec += away_sh_goals;
+
+		if (home_total_score < 1)
+			team.num_of_scoreless++;
+
 		if (home_sh_goals > away_sh_goals)
 			team.num_of_second_half_wins++;
 		else if (away_sh_goals > home_sh_goals)
@@ -232,10 +236,15 @@ void evaluateSecondHalf(Team& team, Match& match,
 		team.num_of_away_matches++;
 		team.num_of_second_half_goals += away_sh_goals;
 		team.num_of_second_half_goals_rec += home_sh_goals;
+
+		if (away_total_score < 1)
+			team.num_of_scoreless++;
+
 		if (away_sh_goals > home_sh_goals)
 			team.num_of_second_half_wins++;
 		else if (home_sh_goals > away_sh_goals)
 			team.num_of_second_half_losses++;
+
 		//full match infoes
 		team.num_of_goals += away_total_score;
 		team.num_of_goals_rec += home_total_score;

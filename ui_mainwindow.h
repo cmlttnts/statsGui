@@ -62,6 +62,28 @@ public:
     QLabel *leagueLabel;
     QComboBox *leagueComboBox;
     QWidget *teamListTab;
+    QWidget *prevBetsTab;
+    QTabWidget *prevBetsTabInner;
+    QWidget *tab;
+    QWidget *layoutWidget4;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *startDateLabel;
+    QLineEdit *startDateLineEdit;
+    QLabel *endDateLabel;
+    QLineEdit *endDateLineEdit;
+    QPushButton *dateSearchButton;
+    QWidget *tab_2;
+    QLabel *teamNameSearchLabel;
+    QPushButton *teamNameSearchButton;
+    QLineEdit *teamNameSearchLineEdit;
+    QWidget *calculatorTab;
+    QPushButton *calculateButton;
+    QLineEdit *howManyMatcLine;
+    QLabel *howManyMatchLabel;
+    QLineEdit *addLineEdit;
+    QLabel *oddsLabel;
+    QLineEdit *whichSystemLineEdit;
+    QLabel *whichSystemLabel;
     QTextBrowser *mainTextArea;
     QMenuBar *menubar;
     QMenu *menuSe_enekler;
@@ -70,7 +92,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(976, 723);
+        MainWindow->resize(1097, 723);
         exitAction = new QAction(MainWindow);
         exitAction->setObjectName(QString::fromUtf8("exitAction"));
         actionBa_ka_Bi_i = new QAction(MainWindow);
@@ -79,7 +101,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         rootTabWidget = new QTabWidget(centralwidget);
         rootTabWidget->setObjectName(QString::fromUtf8("rootTabWidget"));
-        rootTabWidget->setGeometry(QRect(10, 0, 841, 131));
+        rootTabWidget->setGeometry(QRect(10, 0, 1081, 131));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -92,7 +114,7 @@ public:
         teamAnalysisTab->setObjectName(QString::fromUtf8("teamAnalysisTab"));
         teamAnalysisTabWidget = new QTabWidget(teamAnalysisTab);
         teamAnalysisTabWidget->setObjectName(QString::fromUtf8("teamAnalysisTabWidget"));
-        teamAnalysisTabWidget->setGeometry(QRect(0, 0, 841, 111));
+        teamAnalysisTabWidget->setGeometry(QRect(0, 0, 1071, 111));
         sizePolicy.setHeightForWidth(teamAnalysisTabWidget->sizePolicy().hasHeightForWidth());
         teamAnalysisTabWidget->setSizePolicy(sizePolicy);
         teamStatsTab = new QWidget();
@@ -265,16 +287,113 @@ public:
         teamListTab = new QWidget();
         teamListTab->setObjectName(QString::fromUtf8("teamListTab"));
         rootTabWidget->addTab(teamListTab, QString());
+        prevBetsTab = new QWidget();
+        prevBetsTab->setObjectName(QString::fromUtf8("prevBetsTab"));
+        prevBetsTabInner = new QTabWidget(prevBetsTab);
+        prevBetsTabInner->setObjectName(QString::fromUtf8("prevBetsTabInner"));
+        prevBetsTabInner->setGeometry(QRect(6, 9, 881, 91));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        layoutWidget4 = new QWidget(tab);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(10, 10, 621, 29));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget4);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        startDateLabel = new QLabel(layoutWidget4);
+        startDateLabel->setObjectName(QString::fromUtf8("startDateLabel"));
+        startDateLabel->setFont(font);
+
+        horizontalLayout_5->addWidget(startDateLabel);
+
+        startDateLineEdit = new QLineEdit(layoutWidget4);
+        startDateLineEdit->setObjectName(QString::fromUtf8("startDateLineEdit"));
+        sizePolicy.setHeightForWidth(startDateLineEdit->sizePolicy().hasHeightForWidth());
+        startDateLineEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout_5->addWidget(startDateLineEdit);
+
+        endDateLabel = new QLabel(layoutWidget4);
+        endDateLabel->setObjectName(QString::fromUtf8("endDateLabel"));
+        endDateLabel->setFont(font);
+
+        horizontalLayout_5->addWidget(endDateLabel);
+
+        endDateLineEdit = new QLineEdit(layoutWidget4);
+        endDateLineEdit->setObjectName(QString::fromUtf8("endDateLineEdit"));
+        sizePolicy.setHeightForWidth(endDateLineEdit->sizePolicy().hasHeightForWidth());
+        endDateLineEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout_5->addWidget(endDateLineEdit);
+
+        dateSearchButton = new QPushButton(layoutWidget4);
+        dateSearchButton->setObjectName(QString::fromUtf8("dateSearchButton"));
+        dateSearchButton->setFont(font2);
+
+        horizontalLayout_5->addWidget(dateSearchButton);
+
+        prevBetsTabInner->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        teamNameSearchLabel = new QLabel(tab_2);
+        teamNameSearchLabel->setObjectName(QString::fromUtf8("teamNameSearchLabel"));
+        teamNameSearchLabel->setGeometry(QRect(3, 10, 81, 27));
+        teamNameSearchLabel->setFont(font);
+        teamNameSearchButton = new QPushButton(tab_2);
+        teamNameSearchButton->setObjectName(QString::fromUtf8("teamNameSearchButton"));
+        teamNameSearchButton->setGeometry(QRect(263, 10, 75, 27));
+        teamNameSearchButton->setFont(font2);
+        teamNameSearchLineEdit = new QLineEdit(tab_2);
+        teamNameSearchLineEdit->setObjectName(QString::fromUtf8("teamNameSearchLineEdit"));
+        teamNameSearchLineEdit->setGeometry(QRect(90, 10, 167, 27));
+        sizePolicy.setHeightForWidth(teamNameSearchLineEdit->sizePolicy().hasHeightForWidth());
+        teamNameSearchLineEdit->setSizePolicy(sizePolicy);
+        prevBetsTabInner->addTab(tab_2, QString());
+        rootTabWidget->addTab(prevBetsTab, QString());
+        calculatorTab = new QWidget();
+        calculatorTab->setObjectName(QString::fromUtf8("calculatorTab"));
+        calculateButton = new QPushButton(calculatorTab);
+        calculateButton->setObjectName(QString::fromUtf8("calculateButton"));
+        calculateButton->setGeometry(QRect(620, 60, 101, 31));
+        calculateButton->setFont(font2);
+        howManyMatcLine = new QLineEdit(calculatorTab);
+        howManyMatcLine->setObjectName(QString::fromUtf8("howManyMatcLine"));
+        howManyMatcLine->setGeometry(QRect(92, 10, 167, 25));
+        sizePolicy.setHeightForWidth(howManyMatcLine->sizePolicy().hasHeightForWidth());
+        howManyMatcLine->setSizePolicy(sizePolicy);
+        howManyMatchLabel = new QLabel(calculatorTab);
+        howManyMatchLabel->setObjectName(QString::fromUtf8("howManyMatchLabel"));
+        howManyMatchLabel->setGeometry(QRect(10, 10, 76, 25));
+        howManyMatchLabel->setFont(font);
+        addLineEdit = new QLineEdit(calculatorTab);
+        addLineEdit->setObjectName(QString::fromUtf8("addLineEdit"));
+        addLineEdit->setGeometry(QRect(92, 40, 167, 25));
+        sizePolicy.setHeightForWidth(addLineEdit->sizePolicy().hasHeightForWidth());
+        addLineEdit->setSizePolicy(sizePolicy);
+        oddsLabel = new QLabel(calculatorTab);
+        oddsLabel->setObjectName(QString::fromUtf8("oddsLabel"));
+        oddsLabel->setGeometry(QRect(10, 40, 76, 25));
+        oddsLabel->setFont(font);
+        whichSystemLineEdit = new QLineEdit(calculatorTab);
+        whichSystemLineEdit->setObjectName(QString::fromUtf8("whichSystemLineEdit"));
+        whichSystemLineEdit->setGeometry(QRect(368, 10, 151, 25));
+        sizePolicy.setHeightForWidth(whichSystemLineEdit->sizePolicy().hasHeightForWidth());
+        whichSystemLineEdit->setSizePolicy(sizePolicy);
+        whichSystemLabel = new QLabel(calculatorTab);
+        whichSystemLabel->setObjectName(QString::fromUtf8("whichSystemLabel"));
+        whichSystemLabel->setGeometry(QRect(270, 10, 91, 25));
+        whichSystemLabel->setFont(font);
+        rootTabWidget->addTab(calculatorTab, QString());
         mainTextArea = new QTextBrowser(centralwidget);
         mainTextArea->setObjectName(QString::fromUtf8("mainTextArea"));
-        mainTextArea->setGeometry(QRect(0, 140, 981, 561));
+        mainTextArea->setGeometry(QRect(0, 140, 1101, 561));
         sizePolicy.setHeightForWidth(mainTextArea->sizePolicy().hasHeightForWidth());
         mainTextArea->setSizePolicy(sizePolicy);
         mainTextArea->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 976, 21));
+        menubar->setGeometry(QRect(0, 0, 1097, 21));
         menuSe_enekler = new QMenu(menubar);
         menuSe_enekler->setObjectName(QString::fromUtf8("menuSe_enekler"));
         MainWindow->setMenuBar(menubar);
@@ -288,6 +407,7 @@ public:
 
         rootTabWidget->setCurrentIndex(0);
         teamAnalysisTabWidget->setCurrentIndex(0);
+        prevBetsTabInner->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -342,6 +462,22 @@ public:
 
         rootTabWidget->setTabText(rootTabWidget->indexOf(leagueAnalysisTab), QApplication::translate("MainWindow", "Lig Analizi", nullptr));
         rootTabWidget->setTabText(rootTabWidget->indexOf(teamListTab), QApplication::translate("MainWindow", "Tak\304\261m Listesi", nullptr));
+        startDateLabel->setText(QApplication::translate("MainWindow", "Ba\305\237lang\304\261\303\247 Tarihi", nullptr));
+        endDateLabel->setText(QApplication::translate("MainWindow", "Biti\305\237 Tarihi", nullptr));
+        endDateLineEdit->setText(QString());
+        dateSearchButton->setText(QApplication::translate("MainWindow", "Ara", nullptr));
+        prevBetsTabInner->setTabText(prevBetsTabInner->indexOf(tab), QApplication::translate("MainWindow", "Zaman Ara", nullptr));
+        teamNameSearchLabel->setText(QApplication::translate("MainWindow", "Tak\304\261m Ad\304\261: ", nullptr));
+        teamNameSearchButton->setText(QApplication::translate("MainWindow", "Ara", nullptr));
+        teamNameSearchLineEdit->setText(QString());
+        prevBetsTabInner->setTabText(prevBetsTabInner->indexOf(tab_2), QApplication::translate("MainWindow", "Tak\304\261m Ara", nullptr));
+        rootTabWidget->setTabText(rootTabWidget->indexOf(prevBetsTab), QApplication::translate("MainWindow", "Ge\303\247mi\305\237 Bahisler", nullptr));
+        calculateButton->setText(QApplication::translate("MainWindow", "Hesapla", nullptr));
+        howManyMatchLabel->setText(QApplication::translate("MainWindow", "Ka\303\247 Ma\303\247: ", nullptr));
+        oddsLabel->setText(QApplication::translate("MainWindow", "Oranlar: ", nullptr));
+        whichSystemLineEdit->setText(QString());
+        whichSystemLabel->setText(QApplication::translate("MainWindow", "Sistem Ka\303\247: ", nullptr));
+        rootTabWidget->setTabText(rootTabWidget->indexOf(calculatorTab), QApplication::translate("MainWindow", "Sistem Oran Hesaplama", nullptr));
         menuSe_enekler->setTitle(QApplication::translate("MainWindow", "Se\303\247enekler", nullptr));
     } // retranslateUi
 

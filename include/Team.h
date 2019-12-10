@@ -46,10 +46,13 @@ public:
 	unsigned int num_of_first_half_goals_rec = 0;
 	unsigned int num_of_second_half_goals = 0;
 	unsigned int num_of_second_half_goals_rec = 0;
+	
 	unsigned int num_of_above_2_5_matches = 0;
 	unsigned int num_of_below_3_5_matches = 0;
 	unsigned int num_of_above_1_5_half_matches = 0;
 	unsigned int num_of_below_0_5_half_matches = 0;
+
+	unsigned int num_of_scoreless = 0;
 	unsigned int num_of_clean_sheets = 0;
 	unsigned int num_of_kg_var_matches = 0;
 

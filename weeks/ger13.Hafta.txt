@@ -4,7 +4,7 @@ hoffenheim dusseldorf 1 0 1 1 c 1 1 1 4
 hberlin dortmund 1 2 1 2 c 1 1 1 1
 . dort kirmizi yedi ilk yari sonu ama vermedi maci
 koln augsburg 0 1 1 1 c 1 3 3 5
-padeborn leipzig 0 3 2 3 c 4 5 2 1
+paderborn leipzig 0 3 2 3 c 4 5 2 1
 . az daha yakaliyodu pade
 bmunih leverkusen 1 2 1 2 c 2 1 6 1
 . en az 6-7 gol olacak mac 3 golde takildi

@@ -2,7 +2,72 @@
 #include <sstream>
 #include "MyAlgortihms.h"
 
-bool sortMatchesByDate(const Match& m1, const Match& m2) {
+
+
+
+void sortForBestOption(std::vector<Team>& teams, BEST_TEAM_OPTIONS option) {
+
+	switch (option)
+	{
+	case BEST_TEAM_OPTIONS::BEST_RESULTS:
+		std::sort(teams.begin(), teams.end(), compareByWins);
+		break;
+	case BEST_TEAM_OPTIONS::WORST_RESULTS:
+		std::sort(teams.begin(), teams.end(), compareByLosses);
+		break;
+	case BEST_TEAM_OPTIONS::MOST_GOALS_SCORED:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsScored);
+		break;
+	case BEST_TEAM_OPTIONS::LEAST_GOALS_SCORED:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsScored);
+		std::reverse(teams.begin(), teams.end());
+		break;
+	case BEST_TEAM_OPTIONS::MOST_GOALS_RECEIVED:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsRec);
+		break;
+	case BEST_TEAM_OPTIONS::LEAST_GOALS_RECEIVED:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsRec);
+		std::reverse(teams.begin(), teams.end());
+		break;
+	case BEST_TEAM_OPTIONS::MOST_GOALS_IN_MATCHES:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsInMatch);
+		break;
+	case BEST_TEAM_OPTIONS::LEAST_GOALS_IN_MATCHES:
+		std::sort(teams.begin(), teams.end(), compareByMostGoalsInMatch);
+		std::reverse(teams.begin(), teams.end());
+		break;
+	case BEST_TEAM_OPTIONS::COMEBACKS:
+		std::sort(teams.begin(), teams.end(), compareByComebacks);
+		break;
+	case BEST_TEAM_OPTIONS::GOBACKS:
+		std::sort(teams.begin(), teams.end(), compareByGobacks);
+		break;
+	case BEST_TEAM_OPTIONS::TOTAL_CORNERS:
+		std::sort(teams.begin(), teams.end(), compareByTotalCorners);
+		break;
+	case BEST_TEAM_OPTIONS::CORNERS_TAKEN:
+		std::sort(teams.begin(), teams.end(), compareByCornersTaken);
+		break;
+	case BEST_TEAM_OPTIONS::CORNERS_RECEIVED:
+		std::sort(teams.begin(), teams.end(), compareByCornersRec);
+		break;
+	case BEST_TEAM_OPTIONS::GO_BACK:
+		break;
+	case BEST_TEAM_OPTIONS::EXIT:
+		break;
+	default:
+		break;
+	}
+
+}
+
+
+
+
+
+
+
+bool compareByDate(const Match& m1, const Match& m2) {
 
 	std::istringstream date1(m1.date);
 	std::istringstream date2(m2.date);
@@ -42,42 +107,42 @@ bool sortMatchesByDate(const Match& m1, const Match& m2) {
 }
 
 
-bool sortByWins(const Team& team1, const Team& team2) {
+bool compareByWins(const Team& team1, const Team& team2) {
 	if (team1.num_of_wins > team2.num_of_wins)
 		return true;
 	else
 		return false;
 }
 
-bool sortByLosses(const Team& team1, const Team& team2) {
+bool compareByLosses(const Team& team1, const Team& team2) {
 	if (team1.num_of_losses > team2.num_of_losses)
 		return true;
 	else
 		return false;
 }
 
-bool sortByFHWins(const Team& team1, const Team& team2) {
+bool compareByFHWins(const Team& team1, const Team& team2) {
 	if (team1.num_of_first_half_wins > team2.num_of_first_half_wins)
 		return true;
 	else
 		return false;
 }
 
-bool sortByFHLosses(const Team& team1, const Team& team2) {
+bool compareByFHLosses(const Team& team1, const Team& team2) {
 	if (team1.num_of_first_half_losses > team2.num_of_first_half_losses)
 		return true;
 	else
 		return false;
 }
 
-bool sortBySHWins(const Team& team1, const Team& team2) {
+bool compareBySHWins(const Team& team1, const Team& team2) {
 	if (team1.num_of_second_half_wins > team2.num_of_second_half_wins)
 		return true;
 	else
 		return false;
 }
 
-bool sortBySHLosses(const Team& team1, const Team& team2) {
+bool compareBySHLosses(const Team& team1, const Team& team2) {
 	if (team1.num_of_second_half_losses > team2.num_of_second_half_losses)
 		return true;
 	else
@@ -85,7 +150,7 @@ bool sortBySHLosses(const Team& team1, const Team& team2) {
 }
 
 // GOALS SCORED
-bool sortByMostGoalsScored(const Team& team1, const Team& team2) {
+bool compareByMostGoalsScored(const Team& team1, const Team& team2) {
 	float team1_avrg = team1.num_of_goals / float(team1.num_of_matches);
 	float team2_avrg = team2.num_of_goals / float(team2.num_of_matches);
 	if (team1_avrg > team2_avrg)
@@ -95,7 +160,7 @@ bool sortByMostGoalsScored(const Team& team1, const Team& team2) {
 }
 
 
-bool sortByMostGoalsFH(const Team& team1, const Team& team2) {
+bool compareByMostGoalsFH(const Team& team1, const Team& team2) {
 	float team1_avrg = team1.num_of_first_half_goals / float(team1.num_of_matches);
 	float team2_avrg = team2.num_of_first_half_goals / float(team2.num_of_matches);
 	if (team1_avrg > team2_avrg)
@@ -104,7 +169,7 @@ bool sortByMostGoalsFH(const Team& team1, const Team& team2) {
 		return false;
 }
 
-bool sortByMostGoalsSH(const Team& team1, const Team& team2) {
+bool compareByMostGoalsSH(const Team& team1, const Team& team2) {
 	float team1_avrg = team1.num_of_second_half_goals / float(team1.num_of_matches);
 	float team2_avrg = team2.num_of_second_half_goals / float(team2.num_of_matches);
 	if (team1_avrg > team2_avrg)
@@ -113,7 +178,7 @@ bool sortByMostGoalsSH(const Team& team1, const Team& team2) {
 		return false;
 }
 // GOALS RECEIVED
-bool sortByMostGoalsRec(const Team& team1, const Team& team2) {
+bool compareByMostGoalsRec(const Team& team1, const Team& team2) {
 	float team1_avrg = team1.num_of_goals_rec / float(team1.num_of_matches);
 	float team2_avrg = team2.num_of_goals_rec / float(team2.num_of_matches);
 	if (team1_avrg > team2_avrg)
@@ -122,7 +187,7 @@ bool sortByMostGoalsRec(const Team& team1, const Team& team2) {
 		return false;
 }
 
-bool sortByMostGoalsInMatch(const Team& team1, const Team& team2) {
+bool compareByMostGoalsInMatch(const Team& team1, const Team& team2) {
 	float team1_avrg = (team1.num_of_goals + team1.num_of_goals_rec) / float(team1.num_of_matches);
 	float team2_avrg = (team2.num_of_goals + team2.num_of_goals_rec) / float(team2.num_of_matches);
 	if (team1_avrg > team2_avrg)
@@ -134,20 +199,20 @@ bool sortByMostGoalsInMatch(const Team& team1, const Team& team2) {
 
 
 // COMEBACKS
-bool sortByComebacksAndGobacks(const Team& team1, const Team& team2) {
+bool compareByComebacksAndGobacks(const Team& team1, const Team& team2) {
 	if ((team1.num_of_comebacks + team1.num_of_gobacks) > (team2.num_of_comebacks+ team2.num_of_gobacks))
 		return true;
 	else
 		return false;
 }
-bool sortByComebacks(const Team& team1, const Team& team2) {
+bool compareByComebacks(const Team& team1, const Team& team2) {
 	if (team1.num_of_comebacks > team2.num_of_comebacks)
 		return true;
 	else
 		return false;
 }
 
-bool sortByGobacks(const Team& team1, const Team& team2) {
+bool compareByGobacks(const Team& team1, const Team& team2) {
 	if (team1.num_of_gobacks > team2.num_of_gobacks)
 		return true;
 	else
@@ -156,7 +221,7 @@ bool sortByGobacks(const Team& team1, const Team& team2) {
 
 
 
-bool sortByTotalCorners(const Team& team1, const Team& team2) {
+bool compareByTotalCorners(const Team& team1, const Team& team2) {
 	if (team1.num_of_corner_info_match < 1)
 		return false;
 	if (team2.num_of_corner_info_match < 1)
@@ -167,3 +232,23 @@ bool sortByTotalCorners(const Team& team1, const Team& team2) {
 		return false;
 }
 
+bool compareByCornersTaken(const Team& team1, const Team& team2) {
+	if (team1.num_of_corner_info_match < 1)
+		return false;
+	if (team2.num_of_corner_info_match < 1)
+		return true;
+	if (((team1.num_of_corners) / (float)team1.num_of_corner_info_match) > ((team2.num_of_corners) / (float)team2.num_of_corner_info_match))
+		return true;
+	else
+		return false;
+}
+bool compareByCornersRec(const Team& team1, const Team& team2) {
+	if (team1.num_of_corner_info_match < 1)
+		return false;
+	if (team2.num_of_corner_info_match < 1)
+		return true;
+	if (((team1.num_of_corners_rec) / (float)team1.num_of_corner_info_match) > ((team2.num_of_corners_rec) / (float)team2.num_of_corner_info_match))
+		return true;
+	else
+		return false;
+}

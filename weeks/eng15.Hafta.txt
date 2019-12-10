@@ -1,11 +1,15 @@
 Date 3.12.2019
-palace bournemouth
-burnley mancity
-leicester watford
-wolverhampton westham
-manutd tottenham
-chelsea aston
-southampton norwich
-liverpool everton
-sheffield newcastle
-arsenal brighton
+palace bournemouth 0 0 1 0 c 4 2 2 7
+. palas kırmızı yemesine rağmen 10.dkda, maçı aldı
+burnley mancity 0 1 1 4 c 1 4 2 2
+leicester watford 0 0 0 2 c 2 1 5 1
+wolverhampton westham 1 0 2 0 c 3 4 2 0
+manutd tottenham 1 1 2 1 c 3 0 1 3
+. utd iyi takımlara karşı daha iyi
+chelsea aston 1 1 2 1 c 3 3 6 2
+southampton norwich 2 0 2 1 c 6 0 0 1
+liverpool everton 4 2 5 2 c 1 3 4 3
+sheffield newcastle 0 1 0 2 c 5 1 3 0
+. castle a güvendik güzel geldi
+arsenal brighton 0 1 1 2 c 4 5 5 4
+. ars de hoca degisikligi evinde de işe yaramadı

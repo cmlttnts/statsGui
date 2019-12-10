@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <string>
 #include "Files.h"
+#include "Team.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -31,15 +33,28 @@ private slots:
 
     //void on_compTwoComboBox_activated(int index);
 
-    //void on_bestTeamComboBox_activated(int index);
+    void on_bestTeamComboBox_activated(int index);
 
     //void on_leagueComboBox_activated(int index);
 
     void on_compareButton_clicked();
 
+
+    void on_teamAnalysisLineEdit_returnPressed();
+
+	void listTeamNames();
+
 private:
     Ui::MainWindow *ui;
 	std::vector<std::filesystem::path> match_files;
 	std::vector<std::filesystem::path> team_files;
+
+	std::vector<std::vector<std::string>> team_names;
+	bool team_names_done = false;
+
+	std::vector<Team> teams;
+	bool best_team_search_done = false;
+	int best_team_prev_index = -1;
 };
+
 #endif // MAINWINDOW_H

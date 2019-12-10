@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
+    <width>1097</width>
     <height>723</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>841</width>
+      <width>1081</width>
       <height>131</height>
      </rect>
     </property>
@@ -49,7 +49,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>841</width>
+        <width>1071</width>
         <height>111</height>
        </rect>
       </property>
@@ -418,13 +418,301 @@
       <string>Takım Listesi</string>
      </attribute>
     </widget>
+    <widget class="QWidget" name="prevBetsTab">
+     <attribute name="title">
+      <string>Geçmiş Bahisler</string>
+     </attribute>
+     <widget class="QTabWidget" name="prevBetsTabInner">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>9</y>
+        <width>881</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Zaman Ara</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>621</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="startDateLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Başlangıç Tarihi</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="startDateLineEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="endDateLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Bitiş Tarihi</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="endDateLineEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="dateSearchButton">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ara</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Takım Ara</string>
+       </attribute>
+       <widget class="QLabel" name="teamNameSearchLabel">
+        <property name="geometry">
+         <rect>
+          <x>3</x>
+          <y>10</y>
+          <width>81</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Takım Adı: </string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="teamNameSearchButton">
+        <property name="geometry">
+         <rect>
+          <x>263</x>
+          <y>10</y>
+          <width>75</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Ara</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="teamNameSearchLineEdit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>10</y>
+          <width>167</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="calculatorTab">
+     <attribute name="title">
+      <string>Sistem Oran Hesaplama</string>
+     </attribute>
+     <widget class="QPushButton" name="calculateButton">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>60</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Hesapla</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="howManyMatcLine">
+      <property name="geometry">
+       <rect>
+        <x>92</x>
+        <y>10</y>
+        <width>167</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+     <widget class="QLabel" name="howManyMatchLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>76</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kaç Maç: </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="addLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>92</x>
+        <y>40</y>
+        <width>167</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+     <widget class="QLabel" name="oddsLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>76</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Oranlar: </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="whichSystemLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>368</x>
+        <y>10</y>
+        <width>151</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="whichSystemLabel">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>10</y>
+        <width>91</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sistem Kaç: </string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QTextBrowser" name="mainTextArea">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>140</y>
-      <width>981</width>
+      <width>1101</width>
       <height>561</height>
      </rect>
     </property>
@@ -446,7 +734,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>976</width>
+     <width>1097</width>
      <height>21</height>
     </rect>
    </property>
