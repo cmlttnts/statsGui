@@ -10,5 +10,7 @@
 !teams/
 !src/
 !include/
+!bet_history/
+!Notes.txt
 !.gitignore
 !README.md

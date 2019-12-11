@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1097</width>
-    <height>723</height>
+    <width>1157</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>1081</width>
-      <height>131</height>
+      <width>1161</width>
+      <height>771</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -49,8 +49,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1071</width>
-        <height>111</height>
+        <width>1151</width>
+        <height>741</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -71,7 +71,7 @@
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>361</width>
+          <width>381</width>
           <height>31</height>
          </rect>
         </property>
@@ -121,11 +121,61 @@
             <string>Tıklayınca sonuçlar görünür.</string>
            </property>
            <property name="text">
-            <string>ARA</string>
+            <string>İSTATİSTİKLERİ</string>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="betHistoryButton">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>30</y>
+          <width>179</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>Tıklayınca sonuçlar görünür.</string>
+        </property>
+        <property name="text">
+         <string>GEÇMİŞ BAHİSLERİN</string>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="teamStatsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>-5</x>
+          <y>71</y>
+          <width>671</width>
+          <height>621</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="betHistoryTextArea">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>70</y>
+          <width>461</width>
+          <height>621</height>
+         </rect>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="bestTeamsTab">
@@ -221,6 +271,16 @@
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QTextBrowser" name="bestTeamsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>70</y>
+          <width>1141</width>
+          <height>641</height>
+         </rect>
+        </property>
        </widget>
       </widget>
      </widget>
@@ -342,6 +402,16 @@
        </item>
       </layout>
      </widget>
+     <widget class="QTextBrowser" name="compTextArea">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>1141</width>
+        <height>641</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="leagueAnalysisTab">
      <attribute name="title">
@@ -417,6 +487,16 @@
      <attribute name="title">
       <string>Takım Listesi</string>
      </attribute>
+     <widget class="QTextBrowser" name="teamListTextArea">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1141</width>
+        <height>751</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="prevBetsTab">
      <attribute name="title">
@@ -428,11 +508,11 @@
         <x>6</x>
         <y>9</y>
         <width>881</width>
-        <height>91</height>
+        <height>81</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -707,34 +787,13 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QTextBrowser" name="mainTextArea">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>140</y>
-      <width>1101</width>
-      <height>561</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1097</width>
+     <width>1157</width>
      <height>21</height>
     </rect>
    </property>

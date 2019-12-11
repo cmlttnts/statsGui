@@ -3,12 +3,14 @@
 #include <string>
 #include <vector>
 #include "Match.h"
+#include "Bet.h"
 class Team {
 private:
 
 public:
 	std::string name;
 	std::vector<Match> matches;
+	std::vector<Bet> bets;
 	unsigned int num_of_matches = 0;
 	unsigned int num_of_home_matches = 0;
 	unsigned int num_of_away_matches = 0;

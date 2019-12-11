@@ -5,6 +5,7 @@
 #include <string>
 #include "Files.h"
 #include "Team.h"
+#include "ui_mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,7 +20,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 	void setSomeText(const std::string&);
-	void setFilePaths(const std::vector<std::filesystem::path>&, const std::vector<std::filesystem::path>&);
+	void setFilePaths(const std::vector<std::filesystem::path>&, const std::vector<std::filesystem::path>&, const std::vector<std::filesystem::path>&);
 private slots:
     //void on_bestTeamComboBox_activated(const QString &arg1);
 
@@ -44,13 +45,18 @@ private slots:
 
 	void listTeamNames();
 
+    void on_betHistoryButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 	std::vector<std::filesystem::path> match_files;
 	std::vector<std::filesystem::path> team_files;
+	std::vector<std::filesystem::path>bet_history_files;
 
 	std::vector<std::vector<std::string>> team_names;
 	bool team_names_done = false;
+
+	bool teams_listed = false;
 
 	std::vector<Team> teams;
 	bool best_team_search_done = false;

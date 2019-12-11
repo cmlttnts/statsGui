@@ -41,11 +41,15 @@ public:
     QLabel *teamAnalysisLabel;
     QLineEdit *teamAnalysisLineEdit;
     QPushButton *teamAnalysisButton;
+    QPushButton *betHistoryButton;
+    QTextBrowser *teamStatsTextArea;
+    QTextBrowser *betHistoryTextArea;
     QWidget *bestTeamsTab;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QLabel *bestTeamLabel;
     QComboBox *bestTeamComboBox;
+    QTextBrowser *bestTeamsTextArea;
     QWidget *compareTwoTab;
     QPushButton *compareButton;
     QWidget *layoutWidget2;
@@ -56,12 +60,14 @@ public:
     QLineEdit *awayTeamLineEdit;
     QLabel *compTwoLeagueLabel;
     QComboBox *compTwoComboBox;
+    QTextBrowser *compTextArea;
     QWidget *leagueAnalysisTab;
     QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_4;
     QLabel *leagueLabel;
     QComboBox *leagueComboBox;
     QWidget *teamListTab;
+    QTextBrowser *teamListTextArea;
     QWidget *prevBetsTab;
     QTabWidget *prevBetsTabInner;
     QWidget *tab;
@@ -84,7 +90,6 @@ public:
     QLabel *oddsLabel;
     QLineEdit *whichSystemLineEdit;
     QLabel *whichSystemLabel;
-    QTextBrowser *mainTextArea;
     QMenuBar *menubar;
     QMenu *menuSe_enekler;
 
@@ -92,7 +97,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1097, 723);
+        MainWindow->resize(1157, 800);
         exitAction = new QAction(MainWindow);
         exitAction->setObjectName(QString::fromUtf8("exitAction"));
         actionBa_ka_Bi_i = new QAction(MainWindow);
@@ -101,7 +106,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         rootTabWidget = new QTabWidget(centralwidget);
         rootTabWidget->setObjectName(QString::fromUtf8("rootTabWidget"));
-        rootTabWidget->setGeometry(QRect(10, 0, 1081, 131));
+        rootTabWidget->setGeometry(QRect(10, 0, 1161, 771));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -114,14 +119,14 @@ public:
         teamAnalysisTab->setObjectName(QString::fromUtf8("teamAnalysisTab"));
         teamAnalysisTabWidget = new QTabWidget(teamAnalysisTab);
         teamAnalysisTabWidget->setObjectName(QString::fromUtf8("teamAnalysisTabWidget"));
-        teamAnalysisTabWidget->setGeometry(QRect(0, 0, 1071, 111));
+        teamAnalysisTabWidget->setGeometry(QRect(0, 0, 1151, 741));
         sizePolicy.setHeightForWidth(teamAnalysisTabWidget->sizePolicy().hasHeightForWidth());
         teamAnalysisTabWidget->setSizePolicy(sizePolicy);
         teamStatsTab = new QWidget();
         teamStatsTab->setObjectName(QString::fromUtf8("teamStatsTab"));
         layoutWidget = new QWidget(teamStatsTab);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 30, 361, 31));
+        layoutWidget->setGeometry(QRect(20, 30, 381, 31));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -157,6 +162,18 @@ public:
 
         horizontalLayout->addWidget(teamAnalysisButton);
 
+        betHistoryButton = new QPushButton(teamStatsTab);
+        betHistoryButton->setObjectName(QString::fromUtf8("betHistoryButton"));
+        betHistoryButton->setGeometry(QRect(830, 30, 179, 29));
+        sizePolicy2.setHeightForWidth(betHistoryButton->sizePolicy().hasHeightForWidth());
+        betHistoryButton->setSizePolicy(sizePolicy2);
+        betHistoryButton->setFont(font1);
+        teamStatsTextArea = new QTextBrowser(teamStatsTab);
+        teamStatsTextArea->setObjectName(QString::fromUtf8("teamStatsTextArea"));
+        teamStatsTextArea->setGeometry(QRect(-5, 71, 671, 621));
+        betHistoryTextArea = new QTextBrowser(teamStatsTab);
+        betHistoryTextArea->setObjectName(QString::fromUtf8("betHistoryTextArea"));
+        betHistoryTextArea->setGeometry(QRect(670, 70, 461, 621));
         teamAnalysisTabWidget->addTab(teamStatsTab, QString());
         bestTeamsTab = new QWidget();
         bestTeamsTab->setObjectName(QString::fromUtf8("bestTeamsTab"));
@@ -194,6 +211,9 @@ public:
 
         horizontalLayout_2->addWidget(bestTeamComboBox);
 
+        bestTeamsTextArea = new QTextBrowser(bestTeamsTab);
+        bestTeamsTextArea->setObjectName(QString::fromUtf8("bestTeamsTextArea"));
+        bestTeamsTextArea->setGeometry(QRect(0, 70, 1141, 641));
         teamAnalysisTabWidget->addTab(bestTeamsTab, QString());
         rootTabWidget->addTab(teamAnalysisTab, QString());
         compareTwoTab = new QWidget();
@@ -254,6 +274,9 @@ public:
 
         horizontalLayout_3->addWidget(compTwoComboBox);
 
+        compTextArea = new QTextBrowser(compareTwoTab);
+        compTextArea->setObjectName(QString::fromUtf8("compTextArea"));
+        compTextArea->setGeometry(QRect(0, 100, 1141, 641));
         rootTabWidget->addTab(compareTwoTab, QString());
         leagueAnalysisTab = new QWidget();
         leagueAnalysisTab->setObjectName(QString::fromUtf8("leagueAnalysisTab"));
@@ -286,12 +309,15 @@ public:
         rootTabWidget->addTab(leagueAnalysisTab, QString());
         teamListTab = new QWidget();
         teamListTab->setObjectName(QString::fromUtf8("teamListTab"));
+        teamListTextArea = new QTextBrowser(teamListTab);
+        teamListTextArea->setObjectName(QString::fromUtf8("teamListTextArea"));
+        teamListTextArea->setGeometry(QRect(0, 0, 1141, 751));
         rootTabWidget->addTab(teamListTab, QString());
         prevBetsTab = new QWidget();
         prevBetsTab->setObjectName(QString::fromUtf8("prevBetsTab"));
         prevBetsTabInner = new QTabWidget(prevBetsTab);
         prevBetsTabInner->setObjectName(QString::fromUtf8("prevBetsTabInner"));
-        prevBetsTabInner->setGeometry(QRect(6, 9, 881, 91));
+        prevBetsTabInner->setGeometry(QRect(6, 9, 881, 81));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         layoutWidget4 = new QWidget(tab);
@@ -384,16 +410,10 @@ public:
         whichSystemLabel->setGeometry(QRect(270, 10, 91, 25));
         whichSystemLabel->setFont(font);
         rootTabWidget->addTab(calculatorTab, QString());
-        mainTextArea = new QTextBrowser(centralwidget);
-        mainTextArea->setObjectName(QString::fromUtf8("mainTextArea"));
-        mainTextArea->setGeometry(QRect(0, 140, 1101, 561));
-        sizePolicy.setHeightForWidth(mainTextArea->sizePolicy().hasHeightForWidth());
-        mainTextArea->setSizePolicy(sizePolicy);
-        mainTextArea->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1097, 21));
+        menubar->setGeometry(QRect(0, 0, 1157, 21));
         menuSe_enekler = new QMenu(menubar);
         menuSe_enekler->setObjectName(QString::fromUtf8("menuSe_enekler"));
         MainWindow->setMenuBar(menubar);
@@ -407,7 +427,7 @@ public:
 
         rootTabWidget->setCurrentIndex(0);
         teamAnalysisTabWidget->setCurrentIndex(0);
-        prevBetsTabInner->setCurrentIndex(1);
+        prevBetsTabInner->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -428,7 +448,11 @@ public:
 #ifndef QT_NO_TOOLTIP
         teamAnalysisButton->setToolTip(QApplication::translate("MainWindow", "T\304\261klay\304\261nca sonu\303\247lar g\303\266r\303\274n\303\274r.", nullptr));
 #endif // QT_NO_TOOLTIP
-        teamAnalysisButton->setText(QApplication::translate("MainWindow", "ARA", nullptr));
+        teamAnalysisButton->setText(QApplication::translate("MainWindow", "\304\260STAT\304\260ST\304\260KLER\304\260", nullptr));
+#ifndef QT_NO_TOOLTIP
+        betHistoryButton->setToolTip(QApplication::translate("MainWindow", "T\304\261klay\304\261nca sonu\303\247lar g\303\266r\303\274n\303\274r.", nullptr));
+#endif // QT_NO_TOOLTIP
+        betHistoryButton->setText(QApplication::translate("MainWindow", "GE\303\207M\304\260\305\236 BAH\304\260SLER\304\260N", nullptr));
         teamAnalysisTabWidget->setTabText(teamAnalysisTabWidget->indexOf(teamStatsTab), QApplication::translate("MainWindow", "Tak\304\261m \304\260statisti\304\237i", nullptr));
         bestTeamLabel->setText(QApplication::translate("MainWindow", "S\304\261ralama \303\207e\305\237idi :", nullptr));
         bestTeamComboBox->setItemText(0, QApplication::translate("MainWindow", "En \304\260yi Sonu\303\247 Alanlar", nullptr));

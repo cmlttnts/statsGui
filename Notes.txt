@@ -1,0 +1,4 @@
+1) İyi takım geriye düşerse erken, korner olağandan fazla oluyor. Öne geçerse de az.
+
+betHistoryTextArea
+teamStatsTextArea
