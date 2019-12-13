@@ -1,5 +1,5 @@
 Date 13.12.2019
-alaves leganes
+alaves leganes 0 1 1 1 c 0 0 2 0
 granada levante
 sociedad barcelona
 bilbao eibar

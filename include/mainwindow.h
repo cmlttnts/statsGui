@@ -6,7 +6,7 @@
 #include "Files.h"
 #include "Team.h"
 #include "ui_mainwindow.h"
-
+#include "BetWeek.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -47,14 +47,25 @@ private slots:
 
     void on_betHistoryButton_clicked();
 
+    void on_betWeekComboBox_activated(int index);
+
+    void on_dateSearchButton_clicked();
+
+    void on_prevBetsTabInner_currentChanged(int index);
+
+	void showBetsAndStats(std::vector<Bet>&, QTextBrowser*, QTextBrowser*);
+
 private:
     Ui::MainWindow *ui;
 	std::vector<std::filesystem::path> match_files;
 	std::vector<std::filesystem::path> team_files;
-	std::vector<std::filesystem::path>bet_history_files;
+	std::vector<std::filesystem::path> bet_history_files;
 
 	std::vector<std::vector<std::string>> team_names;
 	bool team_names_done = false;
+
+	std::vector<BetWeek> betWeeks;
+	bool betWeeks_available;
 
 	bool teams_listed = false;
 

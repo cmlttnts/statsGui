@@ -13,7 +13,7 @@ southampton watford 0 1 2 1 c 2 3 4 4
 . sout bildin bu sefer de handikap dedin ...
 norwich arsenal 2 1 2 2 c 1 7 6 5
 . arsenal hoca degistirdi evde cosabilir bu haftaya, korner muthis
-wolverhampton sheffield 0 1 1 1 c 3 2 4 0
+wolves sheffield 0 1 1 1 c 3 2 4 0
 leicester everton 0 1 2 1 c 1 1 3 3
 manutd aston 1 1 2 2 c 2 4 7 5
 . iyi korner olmus, manu maclari hep boyle gibi

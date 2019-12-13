@@ -1,0 +1,30 @@
+13.12.2019
+LİGLER HAFTASONU 13.12.2019 - 15.12.2019
+hoffenheim augsburg MS_2_VE_1.5_ÜST 4.10 y (MS:2-4)
+rize kasimpasa MS_2_VE_1.5_ÜST 3.40
+gencler goztepe MS_2_VE_1.5_ÜST 4.30
+hberlin freiburg KG_VAR 1.50
+koln leverkusen KG_VAR 1.42
+mainz dortmund KG_VAR 1.38
+burnley newcastle 1Y_SONUC_2 3.50
+chelsea bournemouth KG_VAR 1.62
+sheffield aston 1Y_SONUC_2 3.55
+sociedad barcelona KG_VAR 1.42
+bilbao eibar MS_1_VE_1.5_ÜST 2.05
+bilbao eibar MS_1_VE_2.5_ÜST 2.75
+dusseldorf leipzig MS_2_VE_2.5_ÜST 1.75
+sivas fenerbahce 2.5_ÜST 1.48
+sivas fenerbahce MS_1_VE_2.5_ÜST 3.55
+manutd everton KG_VAR 1.55
+manutd everton MS_2_VE_1.5_ÜST 5.20
+wolves tottenham KG_VAR 1.55
+milan sassuolo KG_VAR 1.52
+bologna atalanta EV_GOL_1.5_ÜST 2.10
+espanyol betis DEP_GOL_1.5_ÜST 2.10
+besiktas malatya DEP_GOL_1.5_ÜST 2.60
+besiktas malatya KG_VAR 1.48
+arsenal mancity MS_2_VE_2.5_ÜST 1.62
+valencia rmadrid 3.5_ÜST 2.00
+valencia rmadrid 2.5_ÜST 1.42
+cagliari lazio 3.5_ÜST 2.00
+cagliari lazio 2.5_ÜST 1.42

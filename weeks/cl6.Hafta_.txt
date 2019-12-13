@@ -1,0 +1,24 @@
+﻿Date 10.12.2019
+napoli genk 3 0 4 0 c 5 0 0 5
+salzburg liverpool 0 0 0 2 c 1 1 1 3
+dortmund prag 1 1 2 1 c 2 5 0 2
+inter barcelona 1 1 1 2 c 3 1 1 2
+benfica zenit 0 0 3 0 c 2 3 6 3
+lyon leipzig 0 2 2 2 c 4 4 3 4
+chelsea lille 2 0 2 1 c 6 0 4 2
+ajax valencia 0 1 0 1 c 6 2 7 0
+. valencia sürprizini deniyecektin, üst bitmemesi çok sürpriz oldu ama
+paris galatasaray 2 0 5 0 c 3 0 0 1
+. psg maçının skoruna kadar bildik, güzel kazandık, gs karıştı, kadro dışılar var
+brugge rmadrid 0 0 1 3 c 2 5 4 0
+bmunih tottenham 2 1 3 1 c 6 0 3 1
+. münih yine 5-6 atardı, çok kaçırıyorlar
+olympiakos kizilyildiz 0 0 1 0 c 4 1 5 1
+shakhtar atalanta 0 0 0 3 c 2 1 3 2
+. atalanta kırmızı yemeliydi, shaktar yedi, maç garipti
+zagreb mancity 1 1 1 4 c 1 1 4 1
+. city lig yenilgisini telafi etmek istedi, kaçırma böyle maçları ama..
+atmadrid moskova 1 0 2 0 c 2 0 3 0
+. kornerde yanıldık, erken öne geçti madrid
+leverkusen juventus 0 0 0 2 c 5 0 1 2
+. juve oranı çok iyiydi, garantilemiş takımlar da olsa denemek lazım

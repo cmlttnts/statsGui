@@ -2,6 +2,9 @@
 #include "ParseTeam.h"
 #include "ParseBet.h"
 #include "MyAlgortihms.h"
+#include <qdebug.h>
+#include <QTextStream>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -51,8 +54,9 @@ void MainWindow::setFilePaths(const std::vector<std::filesystem::path>& files1, 
 
 void MainWindow::on_teamAnalysisButton_clicked()
 {
-    //first clear the area
-    ui->teamStatsTextArea->clear();
+
+	//first clear the area
+	ui->teamStatsTextArea->clear();
 	if (!ui->teamAnalysisLineEdit->text().isEmpty()) {
 		QString input_str = ui->teamAnalysisLineEdit->text();
 		std::pair<Team, bool> team_info = searchFilesForTeam(match_files, input_str.toStdString(),LEAGUE_SEARCH_OPTION::BOTH);
@@ -178,8 +182,24 @@ void MainWindow::on_rootTabWidget_currentChanged(int index)
 		if (!team_names_done) {
 			team_names = getTeamNames(team_files);
 			team_names_done = true;
+			listTeamNames();
 		}
-		listTeamNames();
+	}
+	else if (index == 4) {
+		// if we already parsed betWeeks, don't do it again
+		if (!betWeeks_available) {
+			betWeeks = getAllBetWeeks(bet_history_files);
+			std::sort(betWeeks.begin(), betWeeks.end(), compBetWeekDate);
+			for (const auto& betWeek : betWeeks) {
+				// add each betWeeks title to combobox to select
+				ui->betWeekComboBox->addItem(QString::fromStdString(betWeek.title));
+			}
+			//  Add another option to select all weeks to see overall score
+			ui->betWeekComboBox->addItem("HEPSİ");
+			//it is availabe now, don't add again
+			betWeeks_available = true;
+		}
+
 	}
 	//ui->compTextArea->append(sometext);
 	index++;
@@ -190,8 +210,6 @@ void MainWindow::on_rootTabWidget_currentChanged(int index)
 #define TEAM_NAME_ALIGN 14
 
 void MainWindow::listTeamNames() {
-	if (!teams_listed) {
-		ui->teamListTextArea->clear();
 		{
 			QString title = QString(" %1| %2| %3| %4| %5| %6|").arg("TÜRKİYE", -TEAM_NAME_ALIGN, ' ').arg("ALMANYA", -TEAM_NAME_ALIGN, ' ').arg("İNGİLTERE", -TEAM_NAME_ALIGN, ' ').arg("İTALYA", -TEAM_NAME_ALIGN, ' ').arg("İSPANYA", -TEAM_NAME_ALIGN, ' ').arg("ŞAMP.LİGİ", -TEAM_NAME_ALIGN, ' ');
 			ui->teamListTextArea->append(title);
@@ -210,9 +228,8 @@ void MainWindow::listTeamNames() {
 
 			ui->teamListTextArea->append(str);
 		}
-		teams_listed = true;
-	}
 }
+
 //void MainWindow::on_leagueComboBox_activated(const QString &arg1)
 //{
 //    ui->mainTextArea->clear();
@@ -676,17 +693,118 @@ void MainWindow::on_betHistoryButton_clicked()
 		}
 		else {
 			unsigned int i = 1;
+			std::string prev_date ="";
+			std::sort(team_info.first.bets.begin(), team_info.first.bets.end(), compBetDate);
 			for (const auto& bet : team_info.first.bets) {
-				if(bet.success)
+				if(bet.result == BetResult::WIN)
 					ui->betHistoryTextArea->setTextColor(Qt::GlobalColor::darkGreen);
-				else
+				else if (bet.result == BetResult::LOSS)
 					ui->betHistoryTextArea->setTextColor(Qt::GlobalColor::darkRed);
+				else
+					ui->betHistoryTextArea->setTextColor(Qt::GlobalColor::black);
 
-				ui->betHistoryTextArea->append(QString::number(i)+ ")" + QString::fromStdString(bet.home_team + " " + bet.away_team + " " + bet.bet_type) + " "+  QString::number(bet.odd));
+				if (prev_date.compare(bet.date))
+					ui->betHistoryTextArea->append(QString::fromStdString(bet.date));
+				ui->betHistoryTextArea->append(QString::number(i)+ ")" + QString::fromStdString(bet.home_team + " " + bet.away_team + " " + bet.bet_type) + " "+  QString::number(bet.odd) + QString::fromStdString(bet.score));
 				i++;
+				prev_date = bet.date;
 			}
 		}
 	}
 	ui->betHistoryTextArea->setTextColor(Qt::GlobalColor::black);
+
+}
+
+void MainWindow::on_betWeekComboBox_activated(int index){
+    // Bet Weeks info shown here
+	ui->betWeekBetsTextArea->clear();
+	ui->betWeekStatsTextArea->clear();
+
+	// if all weeks chosen, show all bets, index of "HEPSİ" is last index
+	if (index == betWeeks.size()) {
+		std::vector<Bet> all_bets;
+		for (const auto& betweek : betWeeks) {
+			all_bets.insert(all_bets.end(), betweek.week_bets.begin(), betweek.week_bets.end());
+		}
+
+		showBetsAndStats(all_bets, ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
+	}
+	else { // we chose a specific week
+
+		showBetsAndStats(betWeeks[index].week_bets, ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
+	}
+}
+
+void MainWindow::on_dateSearchButton_clicked()
+{
+	ui->betWeekBetsTextArea->clear();
+	ui->betWeekStatsTextArea->clear();
+	// TODO: validate date inputs, if empty take it as no start or end point, meaning show from the beginning or end
+	if (betWeeks_available) {
+		{
+			std::vector<Bet> temp_bets;
+			BetWeek temp_start_betweek;
+			BetWeek temp_end_betweek;
+
+			temp_start_betweek.date = (ui->startDateLineEdit->text()).toStdString();
+			temp_end_betweek.date = (ui->endDateLineEdit->text()).toStdString();
+
+			for (const auto& betweek : betWeeks) {
+				//if betweek is between start and end dates, get the bets
+				if (compBetWeekDate(temp_start_betweek, betweek) && compBetWeekDate(betweek, temp_end_betweek))
+					temp_bets.insert(temp_bets.end(), betweek.week_bets.begin(), betweek.week_bets.end());
+			}
+			showBetsAndStats(temp_bets, ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
+		}
+
+		//TODO: do this with another button or tab
+		std::vector<std::string> bet_types;
+		for (const auto& betweek : betWeeks) {
+			for (const auto& bet : betweek.week_bets) {
+				// don't include bet type that already in the vector
+				if (std::find(bet_types.begin(), bet_types.end(), bet.bet_type) == bet_types.end())
+					bet_types.push_back(bet.bet_type);
+			}
+		}
+		std::sort(bet_types.begin(), bet_types.end());
+		for (const auto& bet_type : bet_types) {
+			ui->betWeekStatsTextArea->append(QString::fromStdString(bet_type));
+		}
+	}
+}
+
+void MainWindow::on_prevBetsTabInner_currentChanged(int index)
+{
+    //Date Search 0, Week Search 1
+}
+
+
+void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_text_area, QTextBrowser* stats_text_area) {
+
+	unsigned int num_of_finished_bets = 0;
+	unsigned int num_of_won_bets = 0;
+
+	double total_winning_odds = 0.0;
+
+	for (const auto& bet : bets) {
+		if (bet.result == BetResult::WIN) {
+			bets_text_area->setTextColor(Qt::darkGreen);
+			num_of_finished_bets++;
+			total_winning_odds += bet.odd;
+			num_of_won_bets++;
+		}
+		else if (bet.result == BetResult::LOSS) {
+			bets_text_area->setTextColor(Qt::darkRed);
+			num_of_finished_bets++;
+		}
+		else
+			bets_text_area->setTextColor(Qt::black);
+		bets_text_area->append(QString::fromStdString(bet.home_team + " " + bet.away_team + " " + bet.bet_type + " ") + QString::number(bet.odd) + " " + QString::fromStdString(bet.score));
+	}
+
+	stats_text_area->append("Sonuçlanan Bahis Sayısı = " + QString::number(num_of_finished_bets));
+	stats_text_area->append("Kazanan Bahis Sayısı = " + QString::number(num_of_won_bets));
+	stats_text_area->append("Tutan Oranların Toplamı = " + QString::number(total_winning_odds));
+	stats_text_area->append("Kazanç ( x Birim Bahis) = " + QString::number(total_winning_odds - num_of_finished_bets));
 
 }

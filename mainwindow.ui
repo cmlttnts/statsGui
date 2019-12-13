@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1157</width>
+    <width>1293</width>
     <height>800</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>1161</width>
+      <width>1291</width>
       <height>771</height>
      </rect>
     </property>
@@ -49,7 +49,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1151</width>
+        <width>1281</width>
         <height>741</height>
        </rect>
       </property>
@@ -130,7 +130,7 @@
        <widget class="QPushButton" name="betHistoryButton">
         <property name="geometry">
          <rect>
-          <x>830</x>
+          <x>890</x>
           <y>30</y>
           <width>179</width>
           <height>29</height>
@@ -172,7 +172,7 @@
          <rect>
           <x>670</x>
           <y>70</y>
-          <width>461</width>
+          <width>601</width>
           <height>621</height>
          </rect>
         </property>
@@ -512,9 +512,9 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="betDateSearchTab">
        <attribute name="title">
         <string>Zaman Ara</string>
        </attribute>
@@ -592,68 +592,64 @@
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="betWeekTab">
        <attribute name="title">
-        <string>Takım Ara</string>
+        <string>Hafta Ara</string>
        </attribute>
-       <widget class="QLabel" name="teamNameSearchLabel">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>3</x>
           <y>10</y>
-          <width>81</width>
+          <width>591</width>
           <height>27</height>
          </rect>
         </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Takım Adı: </string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="teamNameSearchButton">
-        <property name="geometry">
-         <rect>
-          <x>263</x>
-          <y>10</y>
-          <width>75</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Ara</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="teamNameSearchLineEdit">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>10</y>
-          <width>167</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="betWeekLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Bülten Haftası: </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="betWeekComboBox"/>
+         </item>
+        </layout>
        </widget>
       </widget>
+     </widget>
+     <widget class="QTextBrowser" name="betWeekBetsTextArea">
+      <property name="geometry">
+       <rect>
+        <x>-5</x>
+        <y>91</y>
+        <width>631</width>
+        <height>651</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="betWeekStatsTextArea">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>90</y>
+        <width>511</width>
+        <height>651</height>
+       </rect>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="calculatorTab">
@@ -793,7 +789,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1157</width>
+     <width>1293</width>
      <height>21</height>
     </rect>
    </property>

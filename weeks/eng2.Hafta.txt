@@ -8,4 +8,4 @@ southampton liverpool 0 1 1 2
 mancity tottenham 2 1 2 2
 sheffield palace 0 0 1 0
 chelsea leicester 1 0 1 1
-wolverhampton manutd 0 1 1 1
+wolves manutd 0 1 1 1

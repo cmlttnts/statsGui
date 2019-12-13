@@ -10,7 +10,7 @@ leicester
 burnley
 tottenham
 watford
-wolverhampton
+wolves
 southampton
 palace
 mancity

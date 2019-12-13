@@ -5,7 +5,7 @@ aston brighton 1 1 2 1 c 5 5 2 0
 chelsea newcastle 0 0 1 0 c 3 0 1 2
 leicester burnley 1 1 2 1 c 6 3 3 1
 tottenham watford 0 1 1 1 c 1 1 10 1
-wolverhampton southampton 0 0 1 1 c 0 1 1 2
+wolves southampton 0 0 1 1 c 0 1 1 2
 palace mancity 0 2 0 2 c 0 4 1 4
 manutd liverpool 1 0 1 1 c 2 0 1 1
 sheffield arsenal 1 0 1 0 c 6 6 1 6

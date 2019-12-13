@@ -7,7 +7,7 @@ gaziantep alanya 0 1 1 1 c 3 1 6 0
 fenerbahce konya 3 1 5 1 c 2 1 0 1
 . bu maca 1y cok gol oynicaktim oynamadim, aykut gidici
 malatya kayseri 1 0 4 0 c 1 1 2 1
-genclerbirligi denizli 0 1 0 2 c 4 3 2 3
+gencler denizli 0 1 0 2 c 4 3 2 3
 . denizli mehmet ozdilek ile cikisa gecti gibi
 goztepe kasimpasa 1 1 1 4 c 2 2 3 2
 . kasimpasa eksikleriyle yendi, goztepe hocasi gitti

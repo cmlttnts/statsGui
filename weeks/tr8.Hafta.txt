@@ -1,6 +1,6 @@
 Date 18.10.2019
 galatasaray sivas 2 0 3 2 c 1 2 2 1
-antalya genclerbirligi 0 5 0 6 c 4 0 4 1
+antalya gencler 0 5 0 6 c 4 0 4 1
 . antalya basit hatalar ve kirmizi yedi erken, tamamen sans skor
 trabzon gaziantep 2 0 4 1 c 3 3 2 1
 basaksehir goztepe 1 0 2 1 c 2 4 3 1

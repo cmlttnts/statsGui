@@ -7,4 +7,4 @@ rize sivas 0 0 2 1
 trabzon malatya 1 0 2 1
 galatasaray konya 0 0 1 1
 antalya denizli 0 1 0 2
-gaziantep genclerbirligi 2 0 4 1
+gaziantep gencler 2 0 4 1
