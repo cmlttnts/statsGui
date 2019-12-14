@@ -65,7 +65,7 @@ private:
 	bool team_names_done = false;
 
 	std::vector<BetWeek> betWeeks;
-	bool betWeeks_available;
+	bool betWeeks_available = false;
 
 	bool teams_listed = false;
 

@@ -38,7 +38,7 @@
      <string extracomment="hello"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="teamAnalysisTab">
      <attribute name="title">
@@ -507,12 +507,12 @@
        <rect>
         <x>6</x>
         <y>9</y>
-        <width>881</width>
-        <height>81</height>
+        <width>1271</width>
+        <height>731</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="betDateSearchTab">
        <attribute name="title">
@@ -591,6 +591,26 @@
          </item>
         </layout>
        </widget>
+       <widget class="QTextBrowser" name="betDateSearchStatTextArea">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>50</y>
+          <width>601</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="betDateSearchBetsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>50</y>
+          <width>661</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="betWeekTab">
        <attribute name="title">
@@ -629,27 +649,85 @@
          </item>
         </layout>
        </widget>
+       <widget class="QTextBrowser" name="betWeekBetsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>50</y>
+          <width>661</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="betWeekStatsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>50</y>
+          <width>601</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
-     </widget>
-     <widget class="QTextBrowser" name="betWeekBetsTextArea">
-      <property name="geometry">
-       <rect>
-        <x>-5</x>
-        <y>91</y>
-        <width>631</width>
-        <height>651</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="betWeekStatsTextArea">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>90</y>
-        <width>511</width>
-        <height>651</height>
-       </rect>
-      </property>
+      <widget class="QWidget" name="betTypeSearchTab">
+       <attribute name="title">
+        <string>Bahis Türü Ara</string>
+       </attribute>
+       <widget class="QTextBrowser" name="betTypeStatsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>40</y>
+          <width>601</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="betTypeBetsTextArea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>661</width>
+          <height>651</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>591</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QLabel" name="betTypeLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Bahis Türü: </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="betTypeComboBox"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="calculatorTab">
@@ -676,110 +754,174 @@
        <string>Hesapla</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="howManyMatcLine">
-      <property name="geometry">
-       <rect>
-        <x>92</x>
-        <y>10</y>
-        <width>167</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-     <widget class="QLabel" name="howManyMatchLabel">
+     <widget class="QTextBrowser" name="calculateTextArea">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
-        <width>76</width>
-        <height>25</height>
+        <y>130</y>
+        <width>721</width>
+        <height>192</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Kaç Maç: </string>
-      </property>
      </widget>
-     <widget class="QLineEdit" name="addLineEdit">
-      <property name="geometry">
-       <rect>
-        <x>92</x>
-        <y>40</y>
-        <width>167</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-     <widget class="QLabel" name="oddsLabel">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
-        <width>76</width>
-        <height>25</height>
+        <y>90</y>
+        <width>531</width>
+        <height>27</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Oranlar: </string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <widget class="QLabel" name="oddsLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Oranlar: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="addLineEdit">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="oddsLabel_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Örn(1.2,3.5,4.2)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
-     <widget class="QLineEdit" name="whichSystemLineEdit">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>368</x>
+        <x>10</x>
+        <y>50</y>
+        <width>351</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QLabel" name="whichSystemLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sistem Kaç: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="whichSystemLineEdit">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="whichSystemLabel_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Örn(2,3,4)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
         <y>10</y>
         <width>151</width>
-        <height>25</height>
+        <height>27</height>
        </rect>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="whichSystemLabel">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>10</y>
-        <width>91</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Sistem Kaç: </string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QLabel" name="howManyMatchLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Kaç Maç: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="howManyMatcLine">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

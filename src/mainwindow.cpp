@@ -206,7 +206,6 @@ void MainWindow::on_rootTabWidget_currentChanged(int index)
 
 }
 
-
 #define TEAM_NAME_ALIGN 14
 
 void MainWindow::listTeamNames() {
@@ -673,7 +672,6 @@ void MainWindow::on_compareButton_clicked()
 
 }
 
-
 void MainWindow::on_teamAnalysisLineEdit_returnPressed()
 {
 	on_teamAnalysisButton_clicked();
@@ -767,9 +765,26 @@ void MainWindow::on_dateSearchButton_clicked()
 			}
 		}
 		std::sort(bet_types.begin(), bet_types.end());
-		for (const auto& bet_type : bet_types) {
-			ui->betWeekStatsTextArea->append(QString::fromStdString(bet_type));
+
+		std::vector<std::vector<Bet>> bets_div_bet_types;
+
+		for (size_t i = 0; i < bet_types.size(); i++) {
+			bets_div_bet_types.push_back(std::vector<Bet>());
 		}
+
+		unsigned int i = 0;
+		for (const auto& bet_type : bet_types) {
+			for (const auto& betweek : betWeeks) {
+				for (const auto& bet : betweek.week_bets) {
+					if (!bet.bet_type.compare(bet_type)) {
+						bets_div_bet_types[i].push_back(bet);
+					}
+				}
+			}
+			i++;
+		}
+		showBetsAndStats(bets_div_bet_types[1], ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
+
 	}
 }
 
@@ -777,7 +792,6 @@ void MainWindow::on_prevBetsTabInner_currentChanged(int index)
 {
     //Date Search 0, Week Search 1
 }
-
 
 void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_text_area, QTextBrowser* stats_text_area) {
 
@@ -805,6 +819,10 @@ void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_tex
 	stats_text_area->append("Sonuçlanan Bahis Sayısı = " + QString::number(num_of_finished_bets));
 	stats_text_area->append("Kazanan Bahis Sayısı = " + QString::number(num_of_won_bets));
 	stats_text_area->append("Tutan Oranların Toplamı = " + QString::number(total_winning_odds));
-	stats_text_area->append("Kazanç ( x Birim Bahis) = " + QString::number(total_winning_odds - num_of_finished_bets));
+	stats_text_area->append("Kar = " + QString::number(total_winning_odds - num_of_finished_bets) + "  (x Birim Bahis)");
+	double perc_profit = 0.0;
+	if(num_of_finished_bets>0)
+		perc_profit = (total_winning_odds - num_of_finished_bets) * 100.0 / num_of_finished_bets;
+	stats_text_area->append("Yüzdelik Kar = %" + QString::number(perc_profit));
 
 }
