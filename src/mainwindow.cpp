@@ -2,8 +2,7 @@
 #include "ParseTeam.h"
 #include "ParseBet.h"
 #include "MyAlgortihms.h"
-#include <qdebug.h>
-#include <QTextStream>
+#include "Combination.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -735,8 +734,8 @@ void MainWindow::on_betWeekComboBox_activated(int index){
 
 void MainWindow::on_dateSearchButton_clicked()
 {
-	ui->betWeekBetsTextArea->clear();
-	ui->betWeekStatsTextArea->clear();
+	ui->betDateSearchBetsTextArea->clear();
+	ui->betDateSearchBetsTextArea->clear();
 	// TODO: validate date inputs, if empty take it as no start or end point, meaning show from the beginning or end
 	if (betWeeks_available) {
 		{
@@ -752,10 +751,19 @@ void MainWindow::on_dateSearchButton_clicked()
 				if (compBetWeekDate(temp_start_betweek, betweek) && compBetWeekDate(betweek, temp_end_betweek))
 					temp_bets.insert(temp_bets.end(), betweek.week_bets.begin(), betweek.week_bets.end());
 			}
-			showBetsAndStats(temp_bets, ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
+			showBetsAndStats(temp_bets, ui->betDateSearchBetsTextArea, ui->betDateSearchBetsTextArea);
 		}
 
-		//TODO: do this with another button or tab
+	}
+}
+
+void MainWindow::on_prevBetsTabInner_currentChanged(int index)
+{
+    //Date Search 0, Week Search 1, Bet Type Search 2
+
+	//prepare bet type list for bet type search
+	if (index == 2 && !bet_type_list_ready) {
+		bet_type_list_ready = true;
 		std::vector<std::string> bet_types;
 		for (const auto& betweek : betWeeks) {
 			for (const auto& bet : betweek.week_bets) {
@@ -764,16 +772,21 @@ void MainWindow::on_dateSearchButton_clicked()
 					bet_types.push_back(bet.bet_type);
 			}
 		}
+
+		//alphabetical order
 		std::sort(bet_types.begin(), bet_types.end());
 
-		std::vector<std::vector<Bet>> bets_div_bet_types;
-
+		
 		for (size_t i = 0; i < bet_types.size(); i++) {
 			bets_div_bet_types.push_back(std::vector<Bet>());
 		}
 
 		unsigned int i = 0;
 		for (const auto& bet_type : bet_types) {
+
+			//for each bet type, add a selection item to combobox to select, in alphabetical order
+			ui->betTypeComboBox->addItem(QString::fromStdString(bet_type));
+
 			for (const auto& betweek : betWeeks) {
 				for (const auto& bet : betweek.week_bets) {
 					if (!bet.bet_type.compare(bet_type)) {
@@ -783,14 +796,8 @@ void MainWindow::on_dateSearchButton_clicked()
 			}
 			i++;
 		}
-		showBetsAndStats(bets_div_bet_types[1], ui->betWeekBetsTextArea, ui->betWeekStatsTextArea);
 
 	}
-}
-
-void MainWindow::on_prevBetsTabInner_currentChanged(int index)
-{
-    //Date Search 0, Week Search 1
 }
 
 void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_text_area, QTextBrowser* stats_text_area) {
@@ -816,7 +823,7 @@ void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_tex
 		bets_text_area->append(QString::fromStdString(bet.home_team + " " + bet.away_team + " " + bet.bet_type + " ") + QString::number(bet.odd) + " " + QString::fromStdString(bet.score));
 	}
 
-	stats_text_area->append("Sonuçlanan Bahis Sayısı = " + QString::number(num_of_finished_bets));
+	stats_text_area->append("Sonuçlanan  Bahis Sayısı = " + QString::number(num_of_finished_bets));
 	stats_text_area->append("Kazanan Bahis Sayısı = " + QString::number(num_of_won_bets));
 	stats_text_area->append("Tutan Oranların Toplamı = " + QString::number(total_winning_odds));
 	stats_text_area->append("Kar = " + QString::number(total_winning_odds - num_of_finished_bets) + "  (x Birim Bahis)");
@@ -824,5 +831,73 @@ void MainWindow::showBetsAndStats(std::vector<Bet>& bets, QTextBrowser* bets_tex
 	if(num_of_finished_bets>0)
 		perc_profit = (total_winning_odds - num_of_finished_bets) * 100.0 / num_of_finished_bets;
 	stats_text_area->append("Yüzdelik Kar = %" + QString::number(perc_profit));
+
+}
+
+void MainWindow::on_betTypeComboBox_activated(int index)
+{
+	ui->betTypeBetsTextArea->clear();
+	ui->betTypeStatsTextArea->clear();
+	showBetsAndStats(bets_div_bet_types[index], ui->betTypeBetsTextArea, ui->betTypeStatsTextArea);
+}
+
+void MainWindow::on_calculateButton_clicked()
+{
+	ui->calculateTextArea->clear();
+
+	std::vector<std::vector<int>> all_combs;
+	std::vector<int> deneme{ 1,2,3,4 };
+	std::vector<int> deneme2;
+
+	getCombinations<int>(deneme, 2, all_combs, deneme2);
+	QString str;
+	
+	for (const auto& comb : all_combs) {
+		for (const auto& item : comb) {
+			str += QString::number(item) + " ";
+		}
+		ui->calculateTextArea->append(str);
+		str = "";
+	}
+
+
+	//ui->whichSystemLineEdit;
+	//ui->calculateTextArea->append(ui->oddsLineEdit->text());
+
+	////get how many matches in the combination
+	//int how_many = ui->howManyMatcLineEdit->text().toInt();
+	//// get string versions of the combination numbers
+	//QStringList odds_strs = ui->oddsLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
+	//if (odds_strs.size() != how_many)
+	//	ui->calculateTextArea->append("Oran sayısı ve maç sayısı uyuşmuyor!!");
+	//else {
+	//	QStringList comb_numbs_strs = ui->whichSystemLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
+	//	
+	//	std::vector<int> comb_numbs(comb_numbs_strs.size());
+	//	std::vector<double> odds(odds_strs.size());
+
+	//	for (int i = 0; i < comb_numbs_strs.size(); i++) {
+	//		comb_numbs[i] = comb_numbs_strs[i].toInt();
+	//	}
+	//	for (int i = 0; i < odds_strs.size(); i++) {
+	//		odds[i] = odds_strs[i].toDouble();
+	//	}
+	//	std::sort(comb_numbs.begin(), comb_numbs.end());
+	//	std::sort(odds.begin(), odds.end());
+
+	//	if ((comb_numbs.back() > how_many) || (comb_numbs.front() < 1) )
+	//		ui->calculateTextArea->append("Sistem sayıları uygun değil!!");
+	//	else if(odds.front() < 1.0)
+	//		ui->calculateTextArea->append("Oranlar uygun değil!!");
+	//	else{
+
+	//		ui->calculateTextArea->append("Minimum Kazanç: " + QString::number(1));
+	//		ui->calculateTextArea->append("Maksimum Kazanç: "+ QString::number(biggest));
+
+	//	}
+
+
+	//}
+
 
 }

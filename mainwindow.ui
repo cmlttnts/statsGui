@@ -38,7 +38,7 @@
      <string extracomment="hello"/>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="teamAnalysisTab">
      <attribute name="title">
@@ -512,7 +512,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="betDateSearchTab">
        <attribute name="title">
@@ -764,7 +764,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -793,7 +793,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="addLineEdit">
+        <widget class="QLineEdit" name="oddsLineEdit">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -803,7 +803,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="oddsLabel_2">
+        <widget class="QLabel" name="oddsExampleLabel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -822,7 +822,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -864,7 +864,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="whichSystemLabel_2">
+        <widget class="QLabel" name="whichSystemExampleLabel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -883,7 +883,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -912,7 +912,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="howManyMatcLine">
+        <widget class="QLineEdit" name="howManyMatcLineEdit">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>

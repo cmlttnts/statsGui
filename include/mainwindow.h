@@ -55,6 +55,10 @@ private slots:
 
 	void showBetsAndStats(std::vector<Bet>&, QTextBrowser*, QTextBrowser*);
 
+    void on_betTypeComboBox_activated(int index);
+
+    void on_calculateButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 	std::vector<std::filesystem::path> match_files;
@@ -64,6 +68,8 @@ private:
 	std::vector<std::vector<std::string>> team_names;
 	bool team_names_done = false;
 
+	std::vector<std::vector<Bet>> bets_div_bet_types;
+	bool bet_type_list_ready = false;
 	std::vector<BetWeek> betWeeks;
 	bool betWeeks_available = false;
 
