@@ -14,8 +14,8 @@ void getCombinations(const std::vector<T>& list, int M, std::vector<std::vector<
 
 		for (int i = 0; i < list.size(); i++) {
 			combination.push_back(list[i]);
-			getCombinations(std::vector<T>(list.begin() + 1, list.end()), M - 1, all_combinations,combination);
-			combination.clear();
+			getCombinations(std::vector<T>(list.begin() + i+1, list.end()), M - 1, all_combinations, combination);
+			combination.pop_back();
 		}
 	}
 

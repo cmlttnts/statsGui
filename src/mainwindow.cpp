@@ -845,59 +845,64 @@ void MainWindow::on_calculateButton_clicked()
 {
 	ui->calculateTextArea->clear();
 
-	std::vector<std::vector<int>> all_combs;
-	std::vector<int> deneme{ 1,2,3,4 };
-	std::vector<int> deneme2;
-
-	getCombinations<int>(deneme, 2, all_combs, deneme2);
-	QString str;
-	
-	for (const auto& comb : all_combs) {
-		for (const auto& item : comb) {
-			str += QString::number(item) + " ";
-		}
-		ui->calculateTextArea->append(str);
-		str = "";
-	}
-
-
 	//ui->whichSystemLineEdit;
 	//ui->calculateTextArea->append(ui->oddsLineEdit->text());
 
-	////get how many matches in the combination
-	//int how_many = ui->howManyMatcLineEdit->text().toInt();
-	//// get string versions of the combination numbers
-	//QStringList odds_strs = ui->oddsLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
-	//if (odds_strs.size() != how_many)
-	//	ui->calculateTextArea->append("Oran sayısı ve maç sayısı uyuşmuyor!!");
-	//else {
-	//	QStringList comb_numbs_strs = ui->whichSystemLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
-	//	
-	//	std::vector<int> comb_numbs(comb_numbs_strs.size());
-	//	std::vector<double> odds(odds_strs.size());
+	//get how many matches in the combination
+	int how_many = ui->howManyMatcLineEdit->text().toInt();
+	// get string versions of the combination numbers
+	QStringList odds_strs = ui->oddsLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
+	if (odds_strs.size() != how_many)
+		ui->calculateTextArea->append("Oran sayısı ve maç sayısı uyuşmuyor!!");
+	else {
+		QStringList comb_numbs_strs = ui->whichSystemLineEdit->text().split(",", QString::SplitBehavior::SkipEmptyParts);
+		
+		std::vector<int> comb_numbs(comb_numbs_strs.size());
+		std::vector<double> odds(odds_strs.size());
 
-	//	for (int i = 0; i < comb_numbs_strs.size(); i++) {
-	//		comb_numbs[i] = comb_numbs_strs[i].toInt();
-	//	}
-	//	for (int i = 0; i < odds_strs.size(); i++) {
-	//		odds[i] = odds_strs[i].toDouble();
-	//	}
-	//	std::sort(comb_numbs.begin(), comb_numbs.end());
-	//	std::sort(odds.begin(), odds.end());
+		for (int i = 0; i < comb_numbs_strs.size(); i++) {
+			comb_numbs[i] = comb_numbs_strs[i].toInt();
+		}
+		for (int i = 0; i < odds_strs.size(); i++) {
+			odds[i] = odds_strs[i].toDouble();
+		}
+		std::sort(comb_numbs.begin(), comb_numbs.end());
+		std::sort(odds.begin(), odds.end());
 
-	//	if ((comb_numbs.back() > how_many) || (comb_numbs.front() < 1) )
-	//		ui->calculateTextArea->append("Sistem sayıları uygun değil!!");
-	//	else if(odds.front() < 1.0)
-	//		ui->calculateTextArea->append("Oranlar uygun değil!!");
-	//	else{
+		if ((comb_numbs.back() > how_many) || (comb_numbs.front() < 1) )
+			ui->calculateTextArea->append("Sistem sayıları uygun değil!!");
+		else if(odds.front() < 1.0)
+			ui->calculateTextArea->append("Oranlar uygun değil!!");
+		else{
+			double biggest = 0.0;
+			double temp_calc = 1.0; // for temporary calculation
+			double smallest = 0.0;
+			bool do_once = true;
+			for (const auto& comb_num : comb_numbs) {
+				std::vector<std::vector<double>> combinations;
+				std::vector<double> temp_comb;
+				getCombinations(odds, comb_num, combinations, temp_comb);
+				for (const auto& comb : combinations) {
+					for (const auto& odd : comb) {
+						temp_calc *= odd;
+					}
+					if (do_once) {
+						smallest = temp_calc;
+						do_once = false;
+					}
+					biggest += temp_calc;
+					temp_calc = 1.0;
+				}
+			}
 
-	//		ui->calculateTextArea->append("Minimum Kazanç: " + QString::number(1));
-	//		ui->calculateTextArea->append("Maksimum Kazanç: "+ QString::number(biggest));
 
-	//	}
+			ui->calculateTextArea->append("Minimum Kazanç: " + QString::number(smallest));
+			ui->calculateTextArea->append("Maksimum Kazanç: "+ QString::number(biggest));
+
+		}
 
 
-	//}
+	}
 
 
 }
