@@ -12,16 +12,16 @@ int main(int argc, char *argv[])
 
 	std::string cur_path = std::filesystem::current_path().string();
 	//std::cout << cur_path << "\n";
-	std::string iddaa_gui_part = "\\iddaa_gui_new";
-	weeks_path = cur_path.substr(0, cur_path.find(iddaa_gui_part));
-	teams_path = cur_path.substr(0, cur_path.find(iddaa_gui_part));
-	bet_history_path = cur_path.substr(0, cur_path.find(iddaa_gui_part));
+	std::string statsGui_gui_part = "\\statsGui_gui_new";
+	weeks_path = cur_path.substr(0, cur_path.find(statsGui_gui_part));
+	teams_path = cur_path.substr(0, cur_path.find(statsGui_gui_part));
+	bet_history_path = cur_path.substr(0, cur_path.find(statsGui_gui_part));
     QApplication a(argc, argv);
     MainWindow w;
-	weeks_path = weeks_path + "\\iddaa_gui_new\\weeks";
+	weeks_path = weeks_path + "\\statsGui_gui_new\\weeks";
 	//w.setSomeText(weeks_path);
-	teams_path = teams_path + "\\iddaa_gui_new\\teams";
-	bet_history_path = bet_history_path + "\\iddaa_gui_new\\bet_history";
+	teams_path = teams_path + "\\statsGui_gui_new\\teams";
+	bet_history_path = bet_history_path + "\\statsGui_gui_new\\bet_history";
 	//std::cout << weeks_path;
 
 	std::vector<std::filesystem::path> match_files = getFileNames(weeks_path);

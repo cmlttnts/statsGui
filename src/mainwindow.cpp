@@ -678,7 +678,6 @@ void MainWindow::on_teamAnalysisLineEdit_returnPressed()
 
 void MainWindow::on_betHistoryButton_clicked()
 {
-    //geçmiş bahisler dosyalarında arama yap ve ekrana ver
 		//first clear the area
 	ui->betHistoryTextArea->clear();
 	if (!ui->teamAnalysisLineEdit->text().isEmpty()) {
