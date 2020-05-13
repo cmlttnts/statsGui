@@ -1,5 +1,5 @@
 # statsGui
-GUI program to analyze team statistics
+QT GUI version of the command line program to analyze team statistics
 ## Libraries
 1- C++17 STL
 2- QT
